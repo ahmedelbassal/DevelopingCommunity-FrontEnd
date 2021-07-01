@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, MinLengthValidator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, MaxLengthValidator, MinLengthValidator, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-login',
@@ -8,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, MinLengthValid
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
 
@@ -20,6 +21,9 @@ export class UserLoginComponent implements OnInit {
       this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.max),Validators.minLength(item.min)]))
     }
   }
+
+
+  subscriber:any;
 
   StringInputNameValidation:Array<{name:string,IsRequired:boolean,maxLength:number,minLength:number}>=[
     {name:"FirstName",maxLength:20,minLength:3,IsRequired:true},
@@ -63,7 +67,21 @@ export class UserLoginComponent implements OnInit {
       FirstName,LastName,Age,UserName,Password,ConfPassword,Email,Phone
     }
 
-    console.log(registerDetails)
+  //  console.log(registerDetails)
+
+    this.subscriber=this.userService.Register(registerDetails).subscribe(
+
+      (data)=>{
+        console.log(data)
+      },
+      (err)=>{
+        console.log(err.message)
+        console.log("errrr")
+      },
+      ()=>{
+        this.subscriber.unsubscribe();
+      }
+    )
   }
 
 }

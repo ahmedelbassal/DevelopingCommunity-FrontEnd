@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,10 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor(private userClient:HttpClient) { }
+  constructor(private userClient: HttpClient) { }
 
-  Register(details:any){
+  baseUrl: string = "https://localhost:5001/api/individuals/"
 
-    return this.userClient.post("http://localhost:5001/user/register",details);
+  Register(details: any) {
+    console.log(details)
+
+    return this.userClient.post("https://localhost:44347/api/individuals/register", details, {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }), responseType: "json"
+    })
+
   }
+
 }

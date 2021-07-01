@@ -12,7 +12,6 @@ export class FormInputStringComponent implements OnInit {
 
   ngOnInit(): void {
     
-    console.log(this.FormOfInput)
 
 
   }
