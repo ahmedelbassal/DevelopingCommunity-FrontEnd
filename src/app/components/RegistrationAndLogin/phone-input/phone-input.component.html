@@ -1,0 +1,40 @@
+
+<label for="{{name}}" [formGroup]="FormOfInput"> {{name}}
+
+
+    <div class="form-group" >
+        <input
+          class="input form-control"
+          type="text"
+          name="{{name}}"
+          autocomplete="on"
+          placeholder="{{name}}"
+          #{{name}}
+          id="{{name}}"
+          formControlName={{name}}
+        
+        /><br />
+        <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+          <!-- Username already exists. choose another one -->
+        <!-- </div> -->
+        <div name="validations" *ngIf="FormOfInput.invalid">
+          <span
+            class="text-danger"
+            *ngIf="
+              
+              FormOfInput.controls[name].errors?.required
+            "
+            >{{name}} is required</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="FormOfInput.controls[name].errors?.pattern"
+            >>{{name}} is invalid</span
+          >
+         
+          >
+        </div>
+      </div>
+    
+    </label>
+    

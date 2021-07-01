@@ -4,13 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 
+
 import {RouterModule,Routes} from "@angular/router"
 import {FormsModule,ReactiveFormsModule} from "@angular/forms"
 import {HttpClientModule} from "@angular/common/http"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormInputComponent } from './components/RegistrationAndLogin/form-input/form-input.component';
 import { FormComponent } from './components/RegistrationAndLogin/form/form.component';
-import { UserModule } from './modules/userRouting/user/user.module';
+import { FormInputNumberComponent } from './components/RegistrationAndLogin/form-input-number/form-input-number.component';
+import { FormInputStringComponent } from './components/RegistrationAndLogin/form-input-string/form-input-string.component';
+import { EmailInputComponent } from './components/RegistrationAndLogin/email-input/email-input.component';
+import { PhoneInputComponent } from './components/RegistrationAndLogin/phone-input/phone-input.component';
 
 
 const appRoutes:Routes=[
@@ -21,8 +24,7 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
-    FormInputComponent,
-    FormComponent
+    FormComponent,
   ],
   imports: [
     BrowserModule,
