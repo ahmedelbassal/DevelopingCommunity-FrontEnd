@@ -15,6 +15,7 @@ import { FormInputStringComponent } from './components/RegistrationAndLogin/form
 import { EmailInputComponent } from './components/RegistrationAndLogin/email-input/email-input.component';
 import { PhoneInputComponent } from './components/RegistrationAndLogin/phone-input/phone-input.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 const appRoutes:Routes=[
