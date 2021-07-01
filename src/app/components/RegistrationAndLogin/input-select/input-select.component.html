@@ -1,0 +1,15 @@
+
+<label for="{{name}}" [formGroup]="FormOfInput"> {{name}}
+<select 
+    class="form-select form-select-lg mb-3" 
+    aria-label=".form-select-lg example" 
+    #{{controllerName}}
+    id="{{controllerName}}"
+    [name]="controllerName"
+    [formControlName]="controllerName" >
+   
+    <option *ngFor="let item of options" [value]="item.id">{{item.name}}</option>
+    
+  </select>
+
+</label>

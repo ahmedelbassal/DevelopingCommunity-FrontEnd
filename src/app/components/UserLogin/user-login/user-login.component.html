@@ -1,0 +1,81 @@
+<form [formGroup]="registerForm">
+
+
+    <div *ngFor="let item of StringInputNameValidation">
+
+        
+        <app-form-input-string 
+        [FormOfInput]=registerForm
+        [name]=item.name
+        [maxLength]=item.maxLength
+        [minLength]=item.minLength
+        [IsRequired]=item.IsRequired
+    
+        ></app-form-input-string>  
+    </div>
+  
+
+
+  <input type="button" (click)="submitForm()">
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form
+            class="form"
+            method="post"
+         
+        
+            #registerUser
+          >
+            <div class="form-group">
+              <input
+                class="input form-control"
+                type="text"
+                name="name"
+                autocomplete="off"
+                placeholder="User Name"
+                #username
+                id="username"
+                formControlName="username"
+              /><br />
+              <div class="text-danger" *ngIf="userNameExists">
+                Username already exists. choose another one
+              </div>
+              <div name="validations" *ngIf="registerForm.invalid">
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    firstClick &&
+                    registerForm.controls.username.errors?.required
+                  "
+                  >Username is required</span
+                >
+                <span
+                  class="text-danger"
+                  *ngIf="registerForm.controls.username.errors?.maxlength"
+                  >username characters exceeded maximum length of 20</span
+                >
+                <span
+                  class="text-danger"
+                  *ngIf="registerForm.controls.username.errors?.minlength"
+                  >username characters are less than 5 characters</span
+                >
+              </div>
+            </div>
+            span class="login_error" id="name_error"></span -->
+
