@@ -14,6 +14,7 @@ import { DepartmentService } from 'src/app/services/department.service';
 import { InputSelectComponent } from 'src/app/components/RegistrationAndLogin/input-select/input-select.component';
 import { UserEditComponent } from 'src/app/components/user-edit/user-edit.component';
 import { DeactiveUserButtonComponent } from 'src/app/components/RegistrationAndLogin/deactive-user-button/deactive-user-button.component';
+import { JoinCommunityComponent } from 'src/app/components/join-community/join-community.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DeactiveUserButtonComponent } from 'src/app/components/RegistrationAndL
     UserRegisterComponent,
     InputSelectComponent,
     UserEditComponent,
-    DeactiveUserButtonComponent
+    DeactiveUserButtonComponent,
+    JoinCommunityComponent
   ],
   imports: [
     CommonModule,
