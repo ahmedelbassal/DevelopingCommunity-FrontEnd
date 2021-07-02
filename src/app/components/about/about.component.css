@@ -1,7 +1,10 @@
+@import "https://mobirise.com/bootstrap-template/web-application-template/assets/mobirise/css/mbr-additional.css";
+@import "https://mobirise.com/bootstrap-template/web-application-template/assets/theme/css/style.css";
+
 .curved-div {
   color: #fff;
   text-align: center;
-  height: 200px;
+  height: 80px;
 }
 .curved-div svg {
   display: block;
@@ -9,4 +12,24 @@
   left: 0px;
   top: 0px;
   z-index: -10;
+}
+
+.idea {
+  background-image: url("src/assets/images/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+}
+.intoDiv {
+  background-image: url("src/assets/images/4.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  color: #fff;
+  position: relative;
+  z-index: -20;
 }
