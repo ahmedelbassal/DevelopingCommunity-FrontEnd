@@ -1,6 +1,20 @@
+<div class="curved-div mt-5">
+    <div class="w-100 container formStyle">
 
- <label for="exampleFormControlTextarea1">Reason for deactivation</label>
- <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="resonForDeactivation" rows="3"></textarea>
+        <h2 class="txtDesign" >
+            User Deactivation
+        </h2>
+        
 
 
-<button class="btn btn-danger" (click)="deactivate()">Deactivate</button>
+        <label class="txtDesign" for="exampleFormControlTextarea1" style="text-decoration: underline;">Reason for deactivation</label>
+        <textarea class="form-control" style="border-radius: 20px; box-shadow: 6px 6px 17px rgb(108, 135, 194);" id="exampleFormControlTextarea1" [(ngModel)]="resonForDeactivation"
+            rows="3"></textarea>
+
+        <div class="my-3 d-flex justify-content-center">
+            <button class="btn btn-danger" (click)="deactivate()" class="btn btn-danger" value="Register"
+                style="border-radius: 20px;">Deactivate</button>
+        </div>
+    </div>
+</div>
+

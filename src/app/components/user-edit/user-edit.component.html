@@ -1,9 +1,13 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" class="w-100 container formStyle">
+
+  <h2 class="txtDesign d-flex justify-content-center">
+    Edit my details
+</h2>
 
 
-    <div *ngFor="let item of StringInputNameValidation">
+    <div *ngFor="let item of StringInputNameValidation" class="row">
 
-        
+        <span class="txtDesign" style="font-weight: lighter;">{{item.name}}</span>
         <app-form-input-string 
         [FormOfInput]=registerForm
         [name]=item.name
@@ -14,8 +18,9 @@
         ></app-form-input-string>  
     </div>
   
-    <div *ngFor="let item of NumerInputNameValidation">
+    <div *ngFor="let item of NumerInputNameValidation" class="row">
 
+      <span class="txtDesign" style="font-weight: lighter;">{{item.name}}</span>
         
       <app-form-input-number 
       [FormOfInput]=registerForm
@@ -27,14 +32,20 @@
       ></app-form-input-number>  
   </div>
 
-  <div>
+  <div class="row">
+    <span class="txtDesign" style="font-weight: lighter;">Email</span>
+
     <app-email-input 
       [FormOfInput]=registerForm
       name="Email"
     > 
     </app-email-input>
-  
-    <app-phone-input
+  </div>
+
+  <div>
+    <span class="txtDesign" style="font-weight: lighter;">Phone</span>
+
+    <app-phone-input class="row"
       [FormOfInput]=registerForm
       name="Phone"
     >
@@ -42,7 +53,9 @@
     </app-phone-input>
   </div>
 
-  <div *ngIf="departmentsOptions!=null">
+  <div *ngIf="departmentsOptions!=null" class="row">
+
+
       <app-input-select
             name="Department"
             [options]=departmentsOptions
@@ -53,66 +66,13 @@
       </app-input-select>
   </div>
 
-  <input type="button" (click)="submitForm()" value="Confirm">
+
+  <div class="my-3 d-flex justify-content-center">
+  
+    <input  type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Confirm" style="border-radius: 20px;">
+  </div>
 
 </form>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <form
-            class="form"
-            method="post"
-         
-        
-            #registerUser
-          >
-            <div class="form-group">
-              <input
-                class="input form-control"
-                type="text"
-                name="name"
-                autocomplete="off"
-                placeholder="User Name"
-                #username
-                id="username"
-                formControlName="username"
-              /><br />
-              <div class="text-danger" *ngIf="userNameExists">
-                Username already exists. choose another one
-              </div>
-              <div name="validations" *ngIf="registerForm.invalid">
-                <span
-                  class="text-danger"
-                  *ngIf="
-                    firstClick &&
-                    registerForm.controls.username.errors?.required
-                  "
-                  >Username is required</span
-                >
-                <span
-                  class="text-danger"
-                  *ngIf="registerForm.controls.username.errors?.maxlength"
-                  >username characters exceeded maximum length of 20</span
-                >
-                <span
-                  class="text-danger"
-                  *ngIf="registerForm.controls.username.errors?.minlength"
-                  >username characters are less than 5 characters</span
-                >
-              </div>
-            </div>
-            span class="login_error" id="name_error"></span -->
 

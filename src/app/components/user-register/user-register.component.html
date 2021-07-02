@@ -1,6 +1,15 @@
+
+<div class="curved-div mt-5">
+  
+
 <form [formGroup]="registerForm" class="w-100 container formStyle">
 
-
+  <h2 class="txtDesign" >
+    Sign Up
+</h2>
+<h4 class="txtDesign" style="font-weight: lighter;text-decoration: underline;">
+  Be a member of out Community
+</h4>
     <div *ngFor="let item of StringInputNameValidation" class="row">
 
         <app-form-input-string
@@ -65,10 +74,12 @@
     </app-input-select>
 </div>
 
-  <input type="button" (click)="submitForm()">
+<div class="my-3">
+
+  <input  type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Register" style="border-radius: 20px;">
+</div>
 
 </form>
-
 
 
 

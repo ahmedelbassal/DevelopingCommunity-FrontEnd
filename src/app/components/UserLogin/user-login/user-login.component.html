@@ -1,4 +1,44 @@
-<form [formGroup]="registerForm">
+<div class="curved-div mt-5">
+  <form [formGroup]="registerForm" class="w-100 container formStyle">
+
+
+    <div *ngFor="let item of StringInputNameValidation" class="row"> 
+
+        
+        <app-form-input-string 
+        [FormOfInput]=registerForm
+        [name]=item.name
+        [maxLength]=item.maxLength
+        [minLength]=item.minLength
+        [IsRequired]=item.IsRequired
+    
+        ></app-form-input-string>  
+    </div>
+  
+
+    <div class="my-3">
+
+      <input  type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Register" style="border-radius: 20px;">
+    </div>
+    
+
+
+</form>
+
+  <svg viewBox="0 0 1440 500">
+    <path
+      fill="#506a91"
+      fill-opacity="1"
+      d="M 0 0 L 1666.87 -3.605 L 378.019 383.162 C 351.073 390.61 81.358 508.952 1.004 327.428 Z"
+    ></path>
+  </svg>
+  
+</div>
+
+
+
+
+<!-- <form [formGroup]="registerForm">
 
 
     <div *ngFor="let item of StringInputNameValidation">
@@ -19,7 +59,7 @@
   <input type="button" (click)="submitForm()">
 
 </form>
-
+ -->
 
 
 
