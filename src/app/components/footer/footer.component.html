@@ -5,19 +5,56 @@
         <div class="col-lg-2 col-md-6 footer-links w-100">
           <h4>Links</h4>
           <ul class="d-flex justify-content-around">
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
             <li>
-              <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+              <a
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLink=""
+              >
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLink="/about"
+              >
+                About us
+              </a>
             </li>
             <li>
-              <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+              <a
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLink="/services"
+              >
+                Services
+              </a>
             </li>
             <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="#">Terms of service</a>
+              <a
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLink="/terms"
+              >
+                Terms of service
+              </a>
             </li>
             <li>
-              <i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a>
+              <a
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLink="/privacy"
+              >
+                Privacy policy
+              </a>
             </li>
           </ul>
         </div>
@@ -31,4 +68,3 @@
     </div>
   </div>
 </footer>
-<!-- End Footer -->

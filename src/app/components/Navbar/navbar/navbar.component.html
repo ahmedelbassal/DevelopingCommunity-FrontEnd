@@ -14,16 +14,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLinkActive]="['exact:true']" routerLink="">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink=""
+          >
             Home
           </a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLinkActive]="['exact:true']"
-            routerLink="about"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/about"
           >
             About
           </a>
@@ -31,8 +37,9 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLinkActive]="['exact:true']"
-            routerLink="projects"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/projects"
           >
             Projects
           </a>
@@ -40,7 +47,8 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLinkActive]="['exact:true']"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
             routerLink="user/register"
           >
             Sign up
@@ -49,7 +57,8 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLinkActive]="['exact:true']"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
             routerLink="user/login"
           >
             Sign in

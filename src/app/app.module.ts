@@ -18,6 +18,7 @@ import { HomeComponent } from './components/Home/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
       ),
   },
   { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'about', pathMatch: 'full', component: AboutComponent },
   { path: '**', component: ErrorComponent },
 ];
 
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     HomeComponent,
     ErrorComponent,
     FooterComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
