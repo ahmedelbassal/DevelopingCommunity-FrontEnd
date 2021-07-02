@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,6 +21,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AboutComponent } from './components/about/about.component';
+import { CarouselComponent } from './components/Home/carousel/carousel.component';
 
 
 const appRoutes: Routes = [
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ErrorComponent,
     FooterComponent,
-    AboutComponent,    
+    AboutComponent,
+    CarouselComponent,    
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
