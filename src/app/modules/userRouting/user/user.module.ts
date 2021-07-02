@@ -15,6 +15,7 @@ import { InputSelectComponent } from 'src/app/components/RegistrationAndLogin/in
 import { UserEditComponent } from 'src/app/components/user-edit/user-edit.component';
 import { DeactiveUserButtonComponent } from 'src/app/components/RegistrationAndLogin/deactive-user-button/deactive-user-button.component';
 import { JoinCommunityComponent } from 'src/app/components/join-community/join-community.component';
+import { UserDetailsComponent } from 'src/app/components/user-details/user-details.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { JoinCommunityComponent } from 'src/app/components/join-community/join-c
     InputSelectComponent,
     UserEditComponent,
     DeactiveUserButtonComponent,
-    JoinCommunityComponent
+    JoinCommunityComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,
