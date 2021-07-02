@@ -5,9 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
+
+  
   constructor(private userClient: HttpClient) {}
 
-  baseUrl: string = 'https://localhost:5001/api/individuals/';
+
+  baseUrl: string = "https://localhost:44347/api/individuals/"
 
   Register(RegisterDetails: any) {
     console.log(RegisterDetails);
@@ -52,5 +55,22 @@ export class UserService {
       }), responseType: "json"
     });
   }
+
+  updateDetails(details:any){
+
+    console.log(details)
+
+
+   
+
+    return this.userClient.put("https://localhost:44347/api/Individuals/details/1018",details,{
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("devCommunityToken")}`
+      }), responseType: "json"
+    });
+  }
+
 
 }

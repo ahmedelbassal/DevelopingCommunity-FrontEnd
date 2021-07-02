@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
 import { DepartmentService } from 'src/app/services/department.service';
+import { IndividualService } from 'src/app/services/individual.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,10 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor(private userService:UserService,private departmentService:DepartmentService,private fb:FormBuilder) { }
+  constructor(private userService:CommonsAmongAllUsersService,private departmentService:DepartmentService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
-
 
     for(let item of this.StringInputNameValidation){
       this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.maxLength),Validators.minLength(item.minLength)]))
@@ -23,40 +24,51 @@ export class UserEditComponent implements OnInit {
       this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.max),Validators.minLength(item.min)]))
     }
 
+    let userType=localStorage.getItem("devCommunityUserType");
 
-    this.subscriber=this.userService.getMyDetailsByToken().subscribe(
+    this.subscriber=this.userService.getMyDetailsByToken(userType).subscribe(
       (data)=>{
         console.log(data)
 
         this.userDetials=data;
+
+   
+
 
         this.registerForm.patchValue({
           FirstName:this.userDetials.firstName,
           LastName:this.userDetials.lastName,
           Email:this.userDetials.email,
           Phone:this.userDetials.phone,
-          depertId:this.userDetials.departId,
+          depertId:this.userDetials.deptId,
           Age:this.userDetials.age
         })
 
        
       },
       (err)=>{
-        console.log(err.message)
+        console.log(err)
+     
       },
       ()=>{
         this.subscriber.unsubscribe();
     
         this.subscriber=this.departmentService.getAll().subscribe(
-          (data)=>{
-            console.log(data)
-            this.departmentsOptions=data;
+          (data:any)=>{
+
+            let arr=[];
+            for(let item of data){
+             arr.push({DisplayMember:item["name"],valueMember:item["id"]})
+            }
+
+            this.departmentsOptions=arr;
           },
           (err)=>{
             console.log(err.massage)
           },
           ()=>{
             this.subscriber.unsubscribe();
+
           }
           )
 
@@ -71,9 +83,7 @@ export class UserEditComponent implements OnInit {
   }
 
   
-bgrb(){
-  console.log(this.registerForm.controls.FirstName.validator)
-}
+
 
 StringInputNameValidation:Array<{name:string,IsRequired:boolean,maxLength:number,minLength:number}>=[
   {name:"FirstName",maxLength:20,minLength:3,IsRequired:true},
@@ -112,6 +122,39 @@ registerForm = new FormGroup({
   //   depertId:new FormControl("",Validators.nullValidator),
   //   Age:new FormControl("",[Validators.required,Validators.min(10),Validators.max(90)])
   // })
+
+
+  submitForm(){
+
+    let FirstName=this.registerForm.get("FirstName")?.value;
+    let LastName=this.registerForm.get("LastName")?.value;
+    let Age=this.registerForm.get("Age")?.value;
+    let Email=this.registerForm.get("Email")?.value;
+    let Phone=this.registerForm.get("Phone")?.value;
+
+    let depertId=this.registerForm.get("depertId")?.value;
+
+    
+    let editDetais={
+      FirstName,LastName,Age,Email,Phone,"departId":Number(depertId),id:this.userDetials.id
+    }
+
+    let userType=localStorage.getItem("devCommunityUserType");
+
+    this.subscriber=this.userService.updateDetails(editDetais,userType).subscribe(
+
+      (data)=>{
+        console.log(data)
+      },
+      (err)=>{
+        console.log(err.message)
+      },
+      ()=>{
+        this.subscriber.unsubscribe();
+      }
+    )
+
+  }
   
 
 }

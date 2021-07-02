@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
 import { DepartmentService } from 'src/app/services/department.service';
+import { IndividualService } from 'src/app/services/individual.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,22 +13,20 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserRegisterComponent implements OnInit {
 
-  constructor(private userService:UserService, private departmentService:DepartmentService,private Router:Router) { }
+  constructor(private userService:CommonsAmongAllUsersService, private departmentService:DepartmentService,private Router:Router) { }
 
   ngOnInit(): void {
 
-    for(let item of this.StringInputNameValidation){
-      this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.maxLength),Validators.minLength(item.minLength)]))
-    }
-
-    for(let item of this.NumerInputNameValidation){
-      this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.max),Validators.minLength(item.min)]))
-    }
 
     this.subscriber=this.departmentService.getAll().subscribe(
-      (data)=>{
-        console.log(data)
-        this.departmentsOptions=data;
+      (data:any)=>{
+
+        let arr=[];
+        for(let item of data){
+         arr.push({DisplayMember:item["name"],valueMember:item["id"]})
+        }
+        this.departmentsOptions=arr;
+        console.log(this.departmentsOptions)
       },
       (err)=>{
         console.log(err.message)
@@ -36,9 +36,27 @@ export class UserRegisterComponent implements OnInit {
       }
     )
 
+    for(let item of this.StringInputNameValidation){
+      this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.maxLength),Validators.minLength(item.minLength)]))
+    }
+
+    for(let item of this.NumerInputNameValidation){
+      this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.max),Validators.minLength(item.min)]))
+    }
+
+    
+
   }
 
   departmentsOptions:any;
+
+  UserTypeOptions:Array<{DisplayMember:string,valueMember:any}>=[
+    {DisplayMember:"instructor",valueMember:"instructor"},
+    {DisplayMember:"student",valueMember:"student"},
+    {DisplayMember:"individual",valueMember:"individual"},
+  ]
+  
+  
 
   subscriber:any;
 
@@ -66,7 +84,8 @@ export class UserRegisterComponent implements OnInit {
   registerForm = new FormGroup({
     Email:new FormControl("",[Validators.required,Validators.email]),
     Phone:new FormControl("",[Validators.required,Validators.pattern("[0-9 ]{11}")]),
-    depertId:new FormControl("",Validators.nullValidator)
+    depertId:new FormControl("",Validators.nullValidator),
+    UserType:new FormControl("",Validators.nullValidator)
   })
 
 
@@ -89,9 +108,13 @@ export class UserRegisterComponent implements OnInit {
       FirstName,LastName,Age,UserName,Password,ConfPassword,Email,Phone,"departId":Number(depertId)
     }
 
+    let userType=this.registerForm.get("UserType")?.value;
  
+    //console.log(this.registerForm.get("UserType")?.value)
 
-    this.subscriber=this.userService.Register(registerDetails).subscribe(
+    console.log(userType)
+
+    this.subscriber=this.userService.Register(registerDetails,userType).subscribe(
 
       (data)=>{
         console.log(data)

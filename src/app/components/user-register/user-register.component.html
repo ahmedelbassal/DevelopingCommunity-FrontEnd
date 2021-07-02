@@ -53,6 +53,18 @@
       </app-input-select>
   </div>
 
+
+  <div >
+    <app-input-select
+          name="UserType"
+          [options]=UserTypeOptions
+          [FormOfInput]=registerForm
+          controllerName=UserType
+    >
+
+    </app-input-select>
+</div>
+
   <input type="button" (click)="submitForm()">
 
 </form>
