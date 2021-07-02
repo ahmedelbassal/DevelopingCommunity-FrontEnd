@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { AppComponent } from './app.component';
 
 
@@ -16,6 +18,7 @@ import { EmailInputComponent } from './components/RegistrationAndLogin/email-inp
 import { PhoneInputComponent } from './components/RegistrationAndLogin/phone-input/phone-input.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { DeactiveUserButtonComponent } from './components/RegistrationAndLogin/deactive-user-button/deactive-user-button.component';
 
 
 const appRoutes:Routes=[

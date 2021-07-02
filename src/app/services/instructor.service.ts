@@ -4,17 +4,17 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class InstructorService {
 
   constructor(private userClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44347/api/individuals/"
+  baseUrl: string = "https://localhost:44347/api/instructors/"
 
   Register(RegisterDetails: any) {
     console.log(RegisterDetails)
 
 
-    return this.userClient.post("https://localhost:44347/api/individuals/register", RegisterDetails, {
+    return this.userClient.post(this.baseUrl+"register", RegisterDetails, {
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ export class UserService {
   Login(LoginDetails: any) {
     console.log(LoginDetails)
 
-    return this.userClient.post("https://localhost:44347/api/individuals/login", LoginDetails, {
+    return this.userClient.post(this.baseUrl+"login", LoginDetails, {
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export class UserService {
 
   getMyDetailsByToken(){
 
-    return this.userClient.get("https://localhost:44347/api/Individuals/myDetails", {
+    return this.userClient.get(this.baseUrl+"myDetails", {
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export class UserService {
 
    
 
-    return this.userClient.put("https://localhost:44347/api/Individuals/details/1018",details,{
+    return this.userClient.put(this.baseUrl+"details/1018",details,{
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -63,6 +63,5 @@ export class UserService {
       }), responseType: "json"
     });
   }
-
 
 }

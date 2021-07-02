@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserLoginComponent } from 'src/app/components/UserLogin/user-login/user-login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormInputStringComponent } from 'src/app/components/RegistrationAndLogin/form-input-string/form-input-string.component';
 import { FormInputNumberComponent } from 'src/app/components/RegistrationAndLogin/form-input-number/form-input-number.component';
 import { EmailInputComponent } from 'src/app/components/RegistrationAndLogin/email-input/email-input.component';
@@ -13,6 +13,7 @@ import { UserRegisterComponent } from 'src/app/components/user-register/user-reg
 import { DepartmentService } from 'src/app/services/department.service';
 import { InputSelectComponent } from 'src/app/components/RegistrationAndLogin/input-select/input-select.component';
 import { UserEditComponent } from 'src/app/components/user-edit/user-edit.component';
+import { DeactiveUserButtonComponent } from 'src/app/components/RegistrationAndLogin/deactive-user-button/deactive-user-button.component';
 
 
 @NgModule({
@@ -24,12 +25,14 @@ import { UserEditComponent } from 'src/app/components/user-edit/user-edit.compon
     PhoneInputComponent,
     UserRegisterComponent,
     InputSelectComponent,
-    UserEditComponent
+    UserEditComponent,
+    DeactiveUserButtonComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers:[UserService,DepartmentService]
 })

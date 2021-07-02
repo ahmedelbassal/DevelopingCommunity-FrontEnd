@@ -15,7 +15,7 @@ export class InputSelectComponent implements OnInit {
 
   @Input() name:string="default";
 
-  @Input() options:Array<{name:string,id:number}>=[{name:"viewMember",id:1}];
+  @Input() options:Array<{DisplayMember:string,valueMember:any}>=[{DisplayMember:"viewMember",valueMember:1}];
 
   @Input() controllerName:string="depertId";
 

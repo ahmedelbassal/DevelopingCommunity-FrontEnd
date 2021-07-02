@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, MaxLengthValidator, MinLengthValidator, Validators } from '@angular/forms';
+import { IndividualService } from 'src/app/services/individual.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:IndividualService) { }
 
   ngOnInit(): void {
 
@@ -51,6 +52,9 @@ export class UserLoginComponent implements OnInit {
         console.log(data)
 
         localStorage.setItem("devCommunityToken",data?.token)
+
+        localStorage.setItem("devCommunityUserType",data?.userType)
+
       },
       (err)=>{
         console.log(err.message)
