@@ -1,10 +1,10 @@
 
-<label for="{{name}}" [formGroup]="FormOfInput"> {{name}}
+<label for="{{name}}" [formGroup]="FormOfInput" class="w-100"> 
 
-
-<div class="form-group" >
-    <input
-      class="input form-control"
+  <!-- {{name}} -->
+<div class="container w-75" >
+    <input 
+      class="input form-control inputDesign w-100 txtDesign"
       type="text"
       name="{{name}}"
       autocomplete="on"
@@ -13,11 +13,11 @@
       id="{{name}}"
       formControlName={{name}}
     
-    /><br />
+    />
     <!-- <div class="text-danger" *ngIf="userNameExists"> -->
       <!-- Username already exists. choose another one -->
     <!-- </div> -->
-    <div name="validations" *ngIf="FormOfInput.invalid">
+    <div name="validations" *ngIf="FormOfInput.invalid" >
       <span
         class="text-danger"
         *ngIf="
@@ -38,5 +38,7 @@
       >
     </div>
   </div>
+
+  <br>
 
 </label>

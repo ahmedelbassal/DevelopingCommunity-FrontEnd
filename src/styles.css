@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.inputDesign {
+    
+    border: 5px solid #ecececb2; 
+  
+    padding: 15px;
+    background: white;
+    margin: 0 0 10px 0;
+    border-radius: 40px;
+    outline: none;
+    height: 5px;
+}
+
+.txtDesign{
+    font-family: "Fantasy", "Papyrus", Fantasy;
+    font-weight: bold;
+}

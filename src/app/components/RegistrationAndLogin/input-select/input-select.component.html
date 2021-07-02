@@ -1,15 +1,21 @@
 
-<label for="{{name}}" [formGroup]="FormOfInput"> {{name}}
-<select 
-    class="form-select form-select-lg mb-3" 
+<label for="{{name}}" [formGroup]="FormOfInput" class="w-100">
+
+  <div class="container w-75" >
+    <div class="txtDesign">  {{name}}</div>
+
+    <select
+    
+    class="form-control w-100 txtDesign" 
     aria-label=".form-select-lg example" 
     #{{controllerName}}
     id="{{controllerName}}"
     [name]="controllerName"
     [formControlName]="controllerName" >
-   
+    
     <option *ngFor="let item of options" [value]="item.valueMember">{{item.DisplayMember}}</option>
     
   </select>
-
+  
+</div>
 </label>

@@ -1,10 +1,13 @@
 
-<label for="{{name}}" [formGroup]="FormOfInput"> {{name}}
 
 
-    <div class="form-group" >
+<label for="{{name}}" [formGroup]="FormOfInput" class="w-100">
+  <!-- {{name}} -->
+
+
+    <div class="form-group container w-75" >
         <input
-          class="input form-control"
+          class="input form-control inputDesign w-100"
           type="number"
           name="{{name}}"
           autocomplete="on"
@@ -13,7 +16,7 @@
           id="{{name}}"
           formControlName={{name}}
         
-        /><br />
+        />
         <!-- <div class="text-danger" *ngIf="userNameExists"> -->
           <!-- Username already exists. choose another one -->
         <!-- </div> -->
@@ -39,5 +42,6 @@
         </div>
       </div>
     
+      <br>
     </label>
     

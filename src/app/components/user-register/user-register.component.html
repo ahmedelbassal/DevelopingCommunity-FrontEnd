@@ -1,10 +1,9 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" class="w-100 container formStyle">
 
 
-    <div *ngFor="let item of StringInputNameValidation">
+    <div *ngFor="let item of StringInputNameValidation" class="row">
 
-        
-        <app-form-input-string 
+        <app-form-input-string
         [FormOfInput]=registerForm
         [name]=item.name
         [maxLength]=item.maxLength
@@ -14,7 +13,7 @@
         ></app-form-input-string>  
     </div>
   
-    <div *ngFor="let item of NumerInputNameValidation">
+    <div *ngFor="let item of NumerInputNameValidation" class="row">
 
         
       <app-form-input-number 
@@ -27,13 +26,14 @@
       ></app-form-input-number>  
   </div>
 
-  <div>
+  <div class="row">
     <app-email-input 
       [FormOfInput]=registerForm
       name="Email"
     > 
     </app-email-input>
-  
+  </div>
+  <div class="row">
     <app-phone-input
       [FormOfInput]=registerForm
       name="Phone"
@@ -42,7 +42,7 @@
     </app-phone-input>
   </div>
 
-  <div *ngIf="departmentsOptions!=null">
+  <div *ngIf="departmentsOptions!=null" class="row">
       <app-input-select
             name="Department"
             [options]=departmentsOptions
@@ -54,7 +54,7 @@
   </div>
 
 
-  <div >
+  <div class="row">
     <app-input-select
           name="UserType"
           [options]=UserTypeOptions
