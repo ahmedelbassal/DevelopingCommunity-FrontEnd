@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/Navbar/navbar/navbar.component';
 import { HomeComponent } from './components/Home/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 const appRoutes: Routes = [
   {

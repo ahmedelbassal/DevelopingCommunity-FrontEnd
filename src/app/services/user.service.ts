@@ -40,4 +40,17 @@ export class UserService {
       }
     );
   }
+
+
+  getMyDetailsByToken(){
+
+    return this.userClient.get("https://localhost:44347/api/Individuals/myDetails", {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("devCommunityToken")}`
+      }), responseType: "json"
+    });
+  }
+
 }

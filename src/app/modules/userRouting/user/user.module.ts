@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 import { UserRegisterComponent } from 'src/app/components/user-register/user-register.component';
 import { DepartmentService } from 'src/app/services/department.service';
 import { InputSelectComponent } from 'src/app/components/RegistrationAndLogin/input-select/input-select.component';
+import { UserEditComponent } from 'src/app/components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { InputSelectComponent } from 'src/app/components/RegistrationAndLogin/in
     EmailInputComponent,
     PhoneInputComponent,
     UserRegisterComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

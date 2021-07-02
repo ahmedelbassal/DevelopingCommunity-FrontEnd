@@ -13,4 +13,10 @@ export class DepartmentService {
 
     return this.userClient.get("https://localhost:44347/api/Departments");
   }
+
+
+  getById(id:number){
+
+    return this.userClient.get("https://localhost:44347/api/Departments/"+id);
+  }
 }
