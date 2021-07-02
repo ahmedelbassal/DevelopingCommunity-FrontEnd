@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +20,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AboutComponent } from './components/about/about.component';
+
 
 const appRoutes: Routes = [
   {
@@ -41,7 +43,7 @@ const appRoutes: Routes = [
     HomeComponent,
     ErrorComponent,
     FooterComponent,
-    AboutComponent,
+    AboutComponent,    
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

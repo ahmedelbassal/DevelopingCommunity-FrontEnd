@@ -29,3 +29,18 @@
   top: 0px;
   z-index: -10;
 }
+
+.firstChar {
+  position: absolute;
+  width: 300px;
+  right: 200px;
+  top: 100px;
+  transform: rotate(-20deg);
+}
+
+.SecondChar {
+  position: absolute;
+  right: 200px;
+  top: 100px;
+  transform: rotate(20deg);
+}

@@ -1,8 +1,15 @@
 <div id="notfound">
-    <div class="notfound">
-        <div class="notfound-404">
-            <h1>Oops!</h1>
-            <h2>404 - The Page can't be found</h2>
-        </div>
-        <a [routerLinkActive]="[ 'exact:true'] " routerLink="/" class="ml-3">Go To Homepage</a>
+  <div class="notfound">
+    <div class="notfound-404">
+      <h1 style="word-break: normal">Oops!</h1>
+      <h2 style="word-break: normal">404 - The Page can't be found</h2>
     </div>
+    <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLink="/"
+      class="ml-3"
+      >Go To Homepage</a
+    >
+  </div>
+</div>
