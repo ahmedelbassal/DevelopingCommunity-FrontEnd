@@ -14,7 +14,7 @@ export class PhoneInputComponent implements OnInit {
   }
 
   @Input() name:string="default";
-
+  @Input() clickedBefore:boolean=false;
 
   @Input() FormOfInput:FormGroup=new FormGroup({
     defaultControl: new FormControl('', [Validators.nullValidator])

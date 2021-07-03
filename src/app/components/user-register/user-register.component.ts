@@ -36,6 +36,11 @@ export class UserRegisterComponent implements OnInit {
       }
     )
 
+    for(let item of this.PasswordInputNameValidation){
+      this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.maxLength),Validators.minLength(item.minLength)]))
+    }
+
+
     for(let item of this.StringInputNameValidation){
       this.registerForm.registerControl(item.name,new FormControl("",[item.IsRequired?Validators.required:Validators.nullValidator,Validators.maxLength(item.maxLength),Validators.minLength(item.minLength)]))
     }
@@ -65,10 +70,20 @@ export class UserRegisterComponent implements OnInit {
     {name:"FirstName",maxLength:20,minLength:3,IsRequired:true},
     {name:"LastName",maxLength:20,minLength:3,IsRequired:true},
     {name:"UserName",maxLength:25,minLength:5,IsRequired:true},
+    // {name:"Password",maxLength:30,minLength:7,IsRequired:true},
+    // {name:"ConfPassword",maxLength:30,minLength:7,IsRequired:true}
+  
+  ]
+
+  PasswordInputNameValidation:Array<{name:string,IsRequired:boolean,maxLength:number,minLength:number}>=[
     {name:"Password",maxLength:30,minLength:7,IsRequired:true},
     {name:"ConfPassword",maxLength:30,minLength:7,IsRequired:true}
   
   ]
+
+  clicked:boolean=false;
+
+  passwordMatch:boolean=true;
 
   NumerInputNameValidation:Array<{name:string,IsRequired:boolean,max:number,min:number}>=[
     {name:"Age",max:90,min:10,IsRequired:true}
@@ -91,6 +106,9 @@ export class UserRegisterComponent implements OnInit {
 
   submitForm(){
 
+    this.clicked=true;
+
+
     let FirstName=this.registerForm.get("FirstName")?.value;
     let LastName=this.registerForm.get("LastName")?.value;
     let Age=this.registerForm.get("Age")?.value;
@@ -103,6 +121,17 @@ export class UserRegisterComponent implements OnInit {
     let depertId=this.registerForm.get("depertId")?.value;
 
     console.log(depertId)
+
+    if(Password!=ConfPassword) {
+      this.passwordMatch=false;
+      return;
+    }
+
+    if(this.registerForm.invalid==true){
+
+      this.passwordMatch=true;
+      return;
+    }
 
     let registerDetails={
       FirstName,LastName,Age,UserName,Password,ConfPassword,Email,Phone,"departId":Number(depertId)

@@ -76,7 +76,7 @@ export class CommonsAmongAllUsersService {
 
     let requestUrl=this.setBaseUrlOnUserType(userType);
 
-    return this.userClient.put(this.baseUrl+"details/1018",details,{
+    return this.userClient.put(requestUrl+"details/"+details.id,details,{
       headers: new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -85,6 +85,21 @@ export class CommonsAmongAllUsersService {
     });
   }
 
+
+  updatePassword(newData:any,userType:any){
+
+    console.log(newData)
+
+    let requestUrl=this.setBaseUrlOnUserType(userType);
+
+    return this.userClient.put(requestUrl+"password/"+newData.id,newData,{
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("devCommunityToken")}`
+      }), responseType: "json"
+    });
+  }
 
   deactivateUser(userId:number,userType:any){
 

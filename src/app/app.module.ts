@@ -22,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AboutComponent } from './components/about/about.component';
 import { CarouselComponent } from './components/Home/carousel/carousel.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 
 
 const appRoutes: Routes = [
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
     ErrorComponent,
     FooterComponent,
     AboutComponent,
-    CarouselComponent,    
+    CarouselComponent  
   ],
   imports: [
     BrowserModule,

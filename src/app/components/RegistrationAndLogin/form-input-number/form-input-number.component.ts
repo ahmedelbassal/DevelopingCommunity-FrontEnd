@@ -17,7 +17,7 @@ export class FormInputNumberComponent implements OnInit {
   @Input() max:number=20;
   @Input() min:number=3;
   @Input() IsRequired:boolean=true;
-
+  @Input() clickedBefore:boolean=false;
 
   @Input() FormOfInput:FormGroup=new FormGroup({
     defaultControl: new FormControl('', [Validators.nullValidator])

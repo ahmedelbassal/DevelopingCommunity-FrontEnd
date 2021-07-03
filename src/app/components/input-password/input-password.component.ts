@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-input-string',
-  templateUrl: './form-input-string.component.html',
-  styleUrls: ['./form-input-string.component.css']
+  selector: 'app-input-password',
+  templateUrl: './input-password.component.html',
+  styleUrls: ['./input-password.component.css']
 })
-export class FormInputStringComponent implements OnInit {
+export class InputPasswordComponent implements OnInit {
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class FormInputStringComponent implements OnInit {
 
   @Input() clickedBefore:boolean=false;
 
-
+  inputType:string="password";
 
   @Input() name:string="default";
   @Input() maxLength:number=20;
@@ -31,7 +31,25 @@ export class FormInputStringComponent implements OnInit {
   })
 
 
+  showHidePassword(){
+
+   
+
+    if(this.inputType=="password") { 
+      
+      this.inputType="text";
+
+      return;
+  }
+    if(this.inputType=="text") 
+    { this.inputType="password";
+  
+      return;
+    }
+
+    
 
 
+  }
 
 }

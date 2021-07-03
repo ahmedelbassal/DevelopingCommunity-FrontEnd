@@ -16,6 +16,8 @@ import { UserEditComponent } from 'src/app/components/user-edit/user-edit.compon
 import { DeactiveUserButtonComponent } from 'src/app/components/RegistrationAndLogin/deactive-user-button/deactive-user-button.component';
 import { JoinCommunityComponent } from 'src/app/components/join-community/join-community.component';
 import { UserDetailsComponent } from 'src/app/components/user-details/user-details.component';
+import { EditPasswordComponent } from 'src/app/components/edit-password/edit-password.component';
+import { InputPasswordComponent } from 'src/app/components/input-password/input-password.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { UserDetailsComponent } from 'src/app/components/user-details/user-detai
     UserEditComponent,
     DeactiveUserButtonComponent,
     JoinCommunityComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    EditPasswordComponent,
+    InputPasswordComponent
   ],
   imports: [
     CommonModule,

@@ -17,7 +17,7 @@
     <!-- <div class="text-danger" *ngIf="userNameExists"> -->
       <!-- Username already exists. choose another one -->
     <!-- </div> -->
-    <div name="validations" *ngIf="FormOfInput.invalid" >
+    <div name="validations" *ngIf="FormOfInput.invalid&&clickedBefore" >
       <span
         class="text-danger"
         *ngIf="
@@ -42,3 +42,5 @@
   <br>
 
 </label>
+
+

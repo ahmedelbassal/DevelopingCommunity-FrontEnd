@@ -32,9 +32,6 @@ export class UserEditComponent implements OnInit {
 
         this.userDetials=data;
 
-   
-
-
         this.registerForm.patchValue({
           FirstName:this.userDetials.firstName,
           LastName:this.userDetials.lastName,

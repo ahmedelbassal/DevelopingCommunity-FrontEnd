@@ -18,9 +18,33 @@
         [maxLength]=item.maxLength
         [minLength]=item.minLength
         [IsRequired]=item.IsRequired
-    
+        [clickedBefore]="clicked"
         ></app-form-input-string>  
     </div>
+
+    <div *ngFor="let item of PasswordInputNameValidation" class="row">
+    
+      <app-input-password
+      [FormOfInput]=registerForm
+      [name]=item.name
+      [maxLength]=item.maxLength
+      [minLength]=item.minLength
+      [IsRequired]=item.IsRequired
+      
+      [clickedBefore]="clicked"
+      >
+         
+          
+      </app-input-password>
+  </div>
+
+  <div class="row" style="text-align: center;" *ngIf="passwordMatch==false">
+
+    <span style="padding: 10px;" class="txtDesign text-danger" >
+      Password and confirmation password don't match
+    </span>
+</div>
+
   
     <div *ngFor="let item of NumerInputNameValidation" class="row">
 
@@ -31,7 +55,7 @@
       [max]=item.max
       [min]=item.min
       [IsRequired]=item.IsRequired
-  
+      [clickedBefore]="clicked"
       ></app-form-input-number>  
   </div>
 
@@ -39,13 +63,14 @@
     <app-email-input 
       [FormOfInput]=registerForm
       name="Email"
-    > 
+    >  [clickedBefore]="clicked"
     </app-email-input>
   </div>
   <div class="row">
     <app-phone-input
       [FormOfInput]=registerForm
       name="Phone"
+      [clickedBefore]="clicked"
     >
       
     </app-phone-input>
@@ -57,6 +82,7 @@
             [options]=departmentsOptions
             [FormOfInput]=registerForm
             controllerName=depertId
+            
       >
 
       </app-input-select>
