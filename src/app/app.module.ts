@@ -23,6 +23,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AboutComponent } from './components/about/about.component';
 import { CarouselComponent } from './components/Home/carousel/carousel.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 
 const appRoutes: Routes = [
@@ -31,6 +32,13 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./modules/userRouting/user/user.module').then(
         (m) => m.UserModule
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin/admin.module').then(
+        (m) => m.AdminModule
       ),
   },
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -47,7 +55,7 @@ const appRoutes: Routes = [
     ErrorComponent,
     FooterComponent,
     AboutComponent,
-    CarouselComponent  
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

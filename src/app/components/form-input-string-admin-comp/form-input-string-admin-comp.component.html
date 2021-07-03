@@ -1,0 +1,47 @@
+
+<label for="{{name}}" [formGroup]="FormOfInput" class="w-100"> 
+
+    <!-- {{name}} -->
+  <div class="container w-75" >
+      <input 
+        class="input form-control inputDesign w-100 txtDesign"
+        type="text"
+        name="{{name}}"
+        autocomplete="on"
+        placeholder="{{name}}"
+        #{{name}}
+        id="{{name}}"
+        formControlName={{name}}
+      
+      />
+      <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+        <!-- Username already exists. choose another one -->
+      <!-- </div> -->
+      <div name="validations" *ngIf="FormOfInput.invalid&&clickedBefore" >
+        <span
+          class="text-danger"
+          *ngIf="
+            
+            FormOfInput.controls[name].errors?.required
+          "
+          >{{name}} is required</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="FormOfInput.controls[name].errors?.maxlength"
+          >>{{name}} characters exceeded maximum length of {{maxLength}} characters</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="FormOfInput.controls[name].errors?.minlength"
+          >{{name}} characters are less than {{minLength}} characters</span
+        >
+      </div>
+    </div>
+  
+    <br>
+  
+  </label>
+  
+  
+  

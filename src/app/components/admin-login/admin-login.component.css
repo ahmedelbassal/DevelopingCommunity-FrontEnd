@@ -1,0 +1,14 @@
+.curved-div svg {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -10;
+  }
+
+  .curved-div {
+    color: #fff;
+    text-align: center;
+    height: 300px;
+  }
+  

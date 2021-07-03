@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, MaxLengthValidator, MinLengthValidator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
-import { UserService } from 'src/app/services/user.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class UserLoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
-  constructor(private userService:CommonsAmongAllUsersService,private router:Router) { }
+  constructor(private adminService:AdminService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -37,11 +36,6 @@ export class UserLoginComponent implements OnInit {
   })
 
 
-  UserTypeOptions:Array<{DisplayMember:string,valueMember:any}>=[
-    {DisplayMember:"instructor",valueMember:"instructor"},
-    {DisplayMember:"student",valueMember:"student"},
-    {DisplayMember:"individual",valueMember:"individual"},
-  ]
   
 
 
@@ -55,11 +49,8 @@ export class UserLoginComponent implements OnInit {
      UserName,Password
     }
 
-  //  console.log(registerDetails)
 
-  let userType=this.loginForm.get("UserType")?.value;
-
-    this.subscriber=this.userService.Login(loginDetails,userType).subscribe(
+    this.subscriber=this.adminService.Login(loginDetails).subscribe(
 
       (data:any)=>{
         console.log(data)

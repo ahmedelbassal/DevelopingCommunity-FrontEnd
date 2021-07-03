@@ -13,34 +13,46 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">                          
-      
+   
+      <!-- secret for admin -->
+        <a *ngIf="!loggedIn"
+          class="nav-link"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="admin/login"
+        >
+        <i class="fa fa-id-badge" aria-hidden="true"></i>
+        </a>
+ 
+        <!-- secret for admin -->
       <h2
       class="me-auto"
       *ngIf="loggedIn"
       style="color: white;"
       >
-        <b>Welcome</b> <!--{{username}}--><!-- اليوزر نيم بيجى منين هنا -->
+        <b>Welcome </b>&nbsp;   <span *ngIf="userDetials">{{firstName}} {{lastName}}</span><!-- اليوزر نيم بيجى منين هنا -->
       </h2>
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item mr-3" style="margin-right: 20px;">
           <div ngbDropdown class="d-inline-block" *ngIf="loggedIn" style="color: black;">
             <button
-              class="btn btn-outline-primary"
+              class="btn btn-primary"
               id="dropdownBasic1"
               ngbDropdownToggle
             >
               User Options
             </button> 
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="background-color: transparent;">
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="background-color: white ">
               <a
+                style="color: rgb(80, 106, 145);"
                 ngbDropdownItem
                 class="nav-link mr-3"                
                 routerLink="/user/edit"
                 >Edit User</a
               >
-    
               <a
+              style="color: rgb(80, 106, 145);"
                 ngbDropdownItem
                 class="nav-link mr-3"               
                 routerLink="/user/password"
@@ -48,6 +60,7 @@
               >
     
               <a
+              style="color: rgb(80, 106, 145);"
                 ngbDropdownItem
                 class="nav-link mr-3"                
                 routerLink="/user/deactivate"
@@ -106,6 +119,7 @@
             Sign in
           </a>
         </li>
+        
       </ul>
     </div>
   </div>

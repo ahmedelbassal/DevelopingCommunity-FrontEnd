@@ -18,6 +18,7 @@ import { JoinCommunityComponent } from 'src/app/components/join-community/join-c
 import { UserDetailsComponent } from 'src/app/components/user-details/user-details.component';
 import { EditPasswordComponent } from 'src/app/components/edit-password/edit-password.component';
 import { InputPasswordComponent } from 'src/app/components/input-password/input-password.component';
+import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
 
 
 @NgModule({
@@ -42,6 +43,6 @@ import { InputPasswordComponent } from 'src/app/components/input-password/input-
     ReactiveFormsModule,
     FormsModule
   ],
-  providers:[UserService,DepartmentService]
+  providers:[UserService,DepartmentService,CommonsAmongAllUsersService]
 })
 export class UserModule { }

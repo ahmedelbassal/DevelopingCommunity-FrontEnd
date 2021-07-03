@@ -1,12 +1,12 @@
 <div class="curved-div mt-5">
-  <form [formGroup]="registerForm" class="w-100 container formStyle">
+  <form [formGroup]="loginForm" class="w-100 container formStyle">
 
 
     <div *ngFor="let item of StringInputNameValidation" class="row"> 
 
         
         <app-form-input-string 
-        [FormOfInput]=registerForm
+        [FormOfInput]=loginForm
         [name]=item.name
         [maxLength]=item.maxLength
         [minLength]=item.minLength
@@ -14,6 +14,16 @@
     
         ></app-form-input-string>  
     </div>
+    <div class="row">
+      <app-input-select
+            name="Are you ..?"
+            [options]=UserTypeOptions
+            [FormOfInput]=loginForm
+            controllerName=UserType
+      >
+  
+      </app-input-select>
+  </div>
   
 
     <div class="my-3">

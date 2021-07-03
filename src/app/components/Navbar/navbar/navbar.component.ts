@@ -27,7 +27,15 @@ export class NavbarComponent implements OnInit {
 
         this.userDetials = data;
 
+        this.firstName=this.userDetials.firstName;
+        this.lastName=this.userDetials.firstName;
+
+
         this.loggedIn = true;
+
+        if(userType=="admin"){
+          this.isAdmin=true;
+        }
       },
       (err) => {
         console.log(err);
@@ -38,7 +46,10 @@ export class NavbarComponent implements OnInit {
     );
   }
 
- 
+  firstName:string="";
+  lastName:string="";
+
+  isAdmin=false;
 
   // navigateUserEditDetails() {
   //   this.router.navigateByUrl('user/edit');
