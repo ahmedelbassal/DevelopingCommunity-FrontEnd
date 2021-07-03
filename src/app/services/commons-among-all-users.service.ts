@@ -8,9 +8,12 @@ export class CommonsAmongAllUsersService {
 
   constructor(private userClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44347/api/"
+  // local url for running visual studio
+  // baseUrl: string = "https://localhost:44347/api/"
 
-  // baseUrl:string=process.env.backendUrl+"/api/"
+
+ baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/"
+
 
 
 

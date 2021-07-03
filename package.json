@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon server.js",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -29,12 +31,14 @@
     "jquery": "^3.6.0",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^6.2.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.9",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "save": "^2.4.0",
     "tslib": "^2.1.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "typescript": "~4.2.3"
+    
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.0.0",
@@ -54,5 +58,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.2.3"
+  },
+  "engines": {
+    "node": "16.1.0",
+    "npm": "7.11.2"
   }
 }

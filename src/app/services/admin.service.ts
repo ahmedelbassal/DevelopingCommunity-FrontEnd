@@ -8,9 +8,11 @@ export class AdminService {
 
   constructor(private userClient: HttpClient) { }
 
-  baseUrl: string = "https://localhost:44347/api/admins/"
+  // local url for run visual studio
+  // baseUrl: string = "https://localhost:44347/api/admins/"
 
-  // baseUrl:string=process.env.backendUrl+"/api/admins/"
+
+  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/admins/"
 
 
   Login(LoginDetails: any) {

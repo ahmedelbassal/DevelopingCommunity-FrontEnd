@@ -6,7 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ProjectsService {
 
-  private baseUrl = 'https://localhost:44347/api/Projects';
+
+  // local url for running visual studio
+  // private baseUrl = 'https://localhost:44347/api/Projects';
+
+
+  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/Projects"
+
 
   constructor(private httpClient:HttpClient) { }
 

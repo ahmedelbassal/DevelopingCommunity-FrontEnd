@@ -8,9 +8,11 @@ export class DepartmentService {
 
   constructor(private userClient:HttpClient) { }
 
-  //  baseUrl:string=process.env.backendUrl+"/api/"
+  // local url for running visual studio
+  // baseUrl: string = "https://localhost:44347/api/"
 
-  baseUrl: string = "https://localhost:44347/api/"
+  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/"
+
 
 
   getAll(){
