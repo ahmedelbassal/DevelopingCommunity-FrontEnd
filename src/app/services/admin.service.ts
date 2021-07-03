@@ -12,7 +12,7 @@ export class AdminService {
   // baseUrl: string = "https://localhost:44347/api/admins/"
 
 
-  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/admins/"
+  baseUrl:string="https://developingcommunity-api.herokuapp.com"+"/api/admins/"
 
 
   Login(LoginDetails: any) {

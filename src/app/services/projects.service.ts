@@ -11,7 +11,7 @@ export class ProjectsService {
   // private baseUrl = 'https://localhost:44347/api/Projects';
 
 
-  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/Projects"
+  baseUrl:string="https://developingcommunity-api.herokuapp.com"+"/api/Projects"
 
 
   constructor(private httpClient:HttpClient) { }

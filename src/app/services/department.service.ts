@@ -11,7 +11,7 @@ export class DepartmentService {
   // local url for running visual studio
   // baseUrl: string = "https://localhost:44347/api/"
 
-  baseUrl:string="https://developing-community-api.herokuapp.com"+"/api/"
+  baseUrl:string="https://developingcommunity-api.herokuapp.com"+"/api/"
 
 
 

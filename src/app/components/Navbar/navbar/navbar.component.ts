@@ -38,7 +38,8 @@ export class NavbarComponent implements OnInit {
         }
       },
       (err) => {
-        console.log(err);
+        // console.log(err);
+        console.log("eee")
       },
       () => {
         this.subscriber.unsubscribe();
