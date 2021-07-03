@@ -1,0 +1,25 @@
+.mycard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-gap: 16px;
+}
+.card{
+    align-items: center;
+    height: 30rem;
+    width: 20rem;
+    /* border: none;  */
+    cursor: pointer;     
+}
+.card:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    /* opacity: 0.5; */
+
+}
+button{
+    margin-left: 30%;
+}
+button:hover{
+    opacity: 0.5;
+}

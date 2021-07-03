@@ -10,6 +10,9 @@ export class CommonsAmongAllUsersService {
 
   baseUrl: string = "https://localhost:44347/api/"
 
+  // baseUrl:string=process.env.backendUrl+"/api/"
+
+
 
   setBaseUrlOnUserType(UserType:string){
     

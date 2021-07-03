@@ -10,6 +10,8 @@ export class AdminService {
 
   baseUrl: string = "https://localhost:44347/api/admins/"
 
+  // baseUrl:string=process.env.backendUrl+"/api/admins/"
+
 
   Login(LoginDetails: any) {
     console.log(LoginDetails)

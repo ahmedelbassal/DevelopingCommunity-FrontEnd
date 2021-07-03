@@ -8,15 +8,21 @@ export class DepartmentService {
 
   constructor(private userClient:HttpClient) { }
 
+  //  baseUrl:string=process.env.backendUrl+"/api/"
+
+  baseUrl: string = "https://localhost:44347/api/"
+
 
   getAll(){
 
-    return this.userClient.get("https://localhost:44347/api/Departments");
+    return this.userClient.get(this.baseUrl+"Departments");
   }
 
 
   getById(id:number){
 
-    return this.userClient.get("https://localhost:44347/api/Departments/"+id);
+    return this.userClient.get(this.baseUrl+"Departments/"+id);
   }
+
+  
 }

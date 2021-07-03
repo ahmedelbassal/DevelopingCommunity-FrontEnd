@@ -24,6 +24,7 @@ import { AboutComponent } from './components/about/about.component';
 import { CarouselComponent } from './components/Home/carousel/carousel.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
 
 
 const appRoutes: Routes = [
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
   },
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'about', pathMatch: 'full', component: AboutComponent },
+  {path:"projects",pathMatch:"full",component:ViewProjectsComponent},
   { path: '**', component: ErrorComponent },
 ];
 
@@ -55,7 +57,8 @@ const appRoutes: Routes = [
     ErrorComponent,
     FooterComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    ViewProjectsComponent
   ],
   imports: [
     BrowserModule,
