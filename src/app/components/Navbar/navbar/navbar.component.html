@@ -12,8 +12,50 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="collapse navbar-collapse" id="navbarResponsive">                          
+      
+      <h2
+      class="me-auto"
+      *ngIf="loggedIn"
+      style="color: white;"
+      >
+        <b>Welcome</b> <!--{{username}}--><!-- اليوزر نيم بيجى منين هنا -->
+      </h2>
+
       <ul class="navbar-nav ms-auto">
+        <li class="nav-item mr-3" style="margin-right: 20px;">
+          <div ngbDropdown class="d-inline-block" *ngIf="loggedIn" style="color: black;">
+            <button
+              class="btn btn-outline-primary"
+              id="dropdownBasic1"
+              ngbDropdownToggle
+            >
+              User Options
+            </button> 
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="background-color: transparent;">
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"                
+                routerLink="/user/edit"
+                >Edit User</a
+              >
+    
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"               
+                routerLink="/user/password"
+                >Change password</a
+              >
+    
+              <a
+                ngbDropdownItem
+                class="nav-link mr-3"                
+                routerLink="/user/deactivate"
+                >Deactive account</a
+              >
+            </div>
+          </div> 
+        </li>
         <li class="nav-item">
           <a
             class="nav-link"

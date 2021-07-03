@@ -5,57 +5,50 @@ import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  constructor(
+    private userService: CommonsAmongAllUsersService,
+    private router: Router
+  ) {}
 
-  constructor(private userService:CommonsAmongAllUsersService,private router:Router) { }
-
+  subscriber: any;
+  userDetials: any;
+  loggedIn: boolean = false;
+  
   ngOnInit(): void {
+    this.loggedIn = localStorage.getItem('devCommunityToken')? true : false;
+    let userType = localStorage.getItem('devCommunityUserType');
 
-    let userType=localStorage.getItem("devCommunityUserType");
+    this.subscriber = this.userService.getMyDetailsByToken(userType).subscribe(
+      (data) => {
+        console.log(data);
 
-    this.subscriber=this.userService.getMyDetailsByToken(userType).subscribe(
-      (data)=>{
-        console.log(data)
+        this.userDetials = data;
 
-        this.userDetials=data;
-
-        this.loggedIn=true;
-
+        this.loggedIn = true;
       },
-      (err)=>{
-        console.log(err)
-     
+      (err) => {
+        console.log(err);
       },
-      ()=>{
+      () => {
         this.subscriber.unsubscribe();
-    
-       
-
-
       }
-    )
-
-
-
+    );
   }
 
-  subscriber:any;
-  userDetials:any;
-  loggedIn:boolean=false;
+ 
 
+  // navigateUserEditDetails() {
+  //   this.router.navigateByUrl('user/edit');
+  // }
 
-  navigateUserEditDetails(){
-    this.router.navigateByUrl("user/edit")
-  }
+  // navigateUserEditPassword() {
+  //   this.router.navigateByUrl('user/password');
+  // }
 
-  navigateUserEditPassword(){
-    this.router.navigateByUrl("user/password")
-  }
-
-  navigateUserDeactivate(){
-    this.router.navigateByUrl("user/deactivate")
-  }
-
+  // navigateUserDeactivate() {
+  //   this.router.navigateByUrl('user/deactivate');
+  // }
 }
