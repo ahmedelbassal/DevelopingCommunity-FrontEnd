@@ -44,7 +44,7 @@
             Projects
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!loggedIn">
           <a
             class="nav-link"
             [routerLinkActive]="['active']"
@@ -54,7 +54,7 @@
             Sign up
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!loggedIn">
           <a
             class="nav-link"
             [routerLinkActive]="['active']"
@@ -68,3 +68,4 @@
     </div>
   </div>
 </nav>
+
