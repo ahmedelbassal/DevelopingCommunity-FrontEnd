@@ -23,9 +23,7 @@ export class CommonsAmongAllUsersService {
 
     if(UserType=="individual") chosenUser="individuals/";
     if(UserType=="instructor") chosenUser="instructors/"
-    if(UserType=="student") chosenUser="students/"
-    
-    console.log(chosenUser,"   aaa")
+    if(UserType=="student") chosenUser="students/"    
     return (this.baseUrl+chosenUser);
   }
 
@@ -33,9 +31,7 @@ export class CommonsAmongAllUsersService {
     // console.log(RegisterDetails)
 
 
-    let requestUrl=this.setBaseUrlOnUserType(userType);
-
-    console.log(requestUrl)
+    let requestUrl=this.setBaseUrlOnUserType(userType);    
 
     return this.userClient.post(requestUrl+"register", RegisterDetails, {
       headers: new HttpHeaders({
@@ -47,8 +43,7 @@ export class CommonsAmongAllUsersService {
   }
 
 
-  Login(LoginDetails: any,userType:any) {
-    console.log(LoginDetails)
+  Login(LoginDetails: any,userType:any) {   
 
     let requestUrl=this.setBaseUrlOnUserType(userType);
 
@@ -77,8 +72,7 @@ export class CommonsAmongAllUsersService {
   }
 
   updateDetails(details:any,userType:any){
-
-    console.log(details)
+ 
 
     let requestUrl=this.setBaseUrlOnUserType(userType);
 

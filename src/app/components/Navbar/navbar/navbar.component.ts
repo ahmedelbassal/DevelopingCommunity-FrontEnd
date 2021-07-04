@@ -21,10 +21,12 @@ export class NavbarComponent implements OnInit {
     this.loggedIn = localStorage.getItem('devCommunityToken')? true : false;
     let userType = localStorage.getItem('devCommunityUserType');
 
+    if(!userType)
+      return;
+      
     this.subscriber = this.userService.getMyDetailsByToken(userType).subscribe(
-      (data) => {
-        console.log(data);
-
+      (data) => {     
+        
         this.userDetials = data;
 
         this.firstName=this.userDetials.firstName;
@@ -38,13 +40,13 @@ export class NavbarComponent implements OnInit {
         }
       },
       (err) => {
-        // console.log(err);
-        console.log("eee")
+        console.log(err);       
       },
       () => {
         this.subscriber.unsubscribe();
       }
     );
+  
   }
 
   firstName:string="";

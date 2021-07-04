@@ -29,8 +29,12 @@
 
 <!------------------- Card for Projects ----------->
 <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
-<div class="mycard my-2">
-  <div class="card h-100" *ngFor="let P of Projects; let i = index">
+<div class="mycard my-5">
+  <div
+    class="card h-100"
+    *ngFor="let P of Projects; let i = index"
+    style="background: white; padding: 5px"
+  >
     <h5 class="card-title">{{ P.name }}</h5>
     <div class="card-body d-flex align-items-center">
       <img
@@ -47,7 +51,7 @@
         style="width: 100px"
       />
       <button
-        style="width: 150px; height: 40px"
+        style="width: 150px; height: 40px; margin: 0.4rem 0.8rem"
         type="button"
         class="btn btn-primary"
         data-bs-toggle="modal"
