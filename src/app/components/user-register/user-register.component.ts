@@ -17,6 +17,32 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // if user already logged in
+
+    let userType=localStorage.getItem("devCommunityUserType");
+
+    this.subscriber=this.userService.getMyDetailsByToken(userType).subscribe(
+      (data)=>{
+        console.log(data)
+
+        // this.userDetials=data;
+
+        this.Router.navigateByUrl("");
+
+      },
+      (err)=>{
+
+     
+      },
+      ()=>{
+        this.subscriber.unsubscribe();
+
+      }
+    )
+
+
+
+
 
     this.subscriber=this.departmentService.getAll().subscribe(
       (data:any)=>{
@@ -104,6 +130,8 @@ export class UserRegisterComponent implements OnInit {
   })
 
 
+  errorUserExists:boolean=false;
+
   submitForm(){
 
     this.clicked=true;
@@ -158,8 +186,13 @@ export class UserRegisterComponent implements OnInit {
         }
       },
       (err)=>{
-        console.log(err.message)
+        console.log(err.error)
         console.log("errrr")
+
+
+        if(err.error=="Username already exists"){
+          this.errorUserExists=true;
+        }
       },
       ()=>{
         this.subscriber.unsubscribe();

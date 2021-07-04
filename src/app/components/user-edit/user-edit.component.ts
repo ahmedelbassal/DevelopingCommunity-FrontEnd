@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
 import { DepartmentService } from 'src/app/services/department.service';
 import { IndividualService } from 'src/app/services/individual.service';
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor(private userService:CommonsAmongAllUsersService,private departmentService:DepartmentService,private fb:FormBuilder) { }
+  constructor(private userService:CommonsAmongAllUsersService,private departmentService:DepartmentService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -44,7 +45,10 @@ export class UserEditComponent implements OnInit {
        
       },
       (err)=>{
-        console.log(err)
+        // console.log(err)
+
+        this.router.navigateByUrl("user/login?notloggedIn=true");
+        
      
       },
       ()=>{
@@ -121,6 +125,8 @@ registerForm = new FormGroup({
   // })
 
 
+  updatedSuccessfully:boolean=false;
+
   submitForm(){
 
     let FirstName=this.registerForm.get("FirstName")?.value;
@@ -142,6 +148,13 @@ registerForm = new FormGroup({
 
       (data)=>{
         console.log(data)
+
+        this.updatedSuccessfully=true;
+        setTimeout(() => {
+
+          this.router.navigateByUrl("");
+        }
+        , 2500);
       },
       (err)=>{
         console.log(err.message)

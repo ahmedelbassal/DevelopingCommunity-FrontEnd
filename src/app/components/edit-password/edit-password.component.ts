@@ -34,6 +34,9 @@ export class EditPasswordComponent implements OnInit {
       },
       (err)=>{
         console.log(err)
+
+        this.Router.navigateByUrl("user/login?notloggedIn=true");
+
      
       },
       ()=>{
@@ -64,6 +67,7 @@ export class EditPasswordComponent implements OnInit {
 
   passwordMatch:boolean=true;
 
+  updatedSuccessfully:boolean=false;
 
   submitForm(){
 
@@ -109,11 +113,19 @@ export class EditPasswordComponent implements OnInit {
         localStorage.removeItem("devCommunityUserType")
 
 
+        this.updatedSuccessfully=true;
+        setTimeout(() => {
+
           this.Router.navigateByUrl("user/login").then(
             ()=>{
               location.reload();
             }
           )
+        }
+        , 2500);
+
+
+          
         
       },
       (err)=>{

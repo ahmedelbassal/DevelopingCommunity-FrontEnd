@@ -111,7 +111,14 @@ export class CommonsAmongAllUsersService {
 
     let requestUrl=this.setBaseUrlOnUserType(userType);
 
-    return this.userClient.delete(requestUrl+userId);
+
+    return this.userClient.delete(requestUrl+userId,{
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("devCommunityToken")}`
+      }), responseType: "json"
+    });
   
 
   }

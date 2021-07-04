@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-users.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CommonsAmongAllUsersService } from 'src/app/services/commons-among-all-
 })
 export class DeactiveUserButtonComponent implements OnInit {
 
-  constructor(private userService:CommonsAmongAllUsersService) { }
+  constructor(private userService:CommonsAmongAllUsersService,private  router:Router) { }
 
   ngOnInit(): void {
 
@@ -16,13 +17,15 @@ export class DeactiveUserButtonComponent implements OnInit {
 
     this.subscriber=this.userService.getMyDetailsByToken(userType).subscribe(
       (data:any)=>{
-        console.log(data)
+        // console.log(data)
 
         this.userId=data.id;
        
       },
       (err)=>{
-        console.log(err)
+        // console.log(err)
+
+        this.router.navigateByUrl("user/login")
      
       },
       ()=>{
@@ -31,12 +34,14 @@ export class DeactiveUserButtonComponent implements OnInit {
 
   }
   
-  userType:any;
+  // userType:any;
   userId:any;
 
   subscriber:any;
 
   resonForDeactivation:string="";
+
+  deactivatedSuccessfully:boolean=false;
 
 
   deactivate(){
@@ -47,12 +52,36 @@ export class DeactiveUserButtonComponent implements OnInit {
 
     if(confirmDeactivation==false) return;
 
-   this.subscriber= this.userService.deactivateUser(this.userId,this.userType).subscribe(
+    let userType=localStorage.getItem("devCommunityUserType");
+
+   this.subscriber= this.userService.deactivateUser(this.userId,userType).subscribe(
       (data)=>{
-        console.log(data)
+        // console.log(data)
+
+        this.deactivatedSuccessfully=true;
+
+        localStorage.removeItem("devCommunityToken")
+        localStorage.removeItem("devCommunityUserType")
+    
+
+        setTimeout(() => {
+
+          this.router.navigateByUrl("").then(
+            ()=>{
+              location.reload();
+            }
+          )
+        }
+        , 2500);
+
+        
       },
       (err)=>{
-        console.log(err.message)
+        // console.log(err.error)
+
+        console.log(err)
+
+
       },
       ()=>{
         this.subscriber.unsubscribe();

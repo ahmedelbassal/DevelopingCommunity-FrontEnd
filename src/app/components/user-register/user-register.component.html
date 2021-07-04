@@ -123,6 +123,13 @@
     </app-input-select>
 </div>
 
+<div class="row" style="text-align: center;" *ngIf="errorUserExists==true">
+
+  <span style="padding: 10px;" class="txtDesign text-danger" >
+    UserName already exists. Try different one.
+  </span>
+</div>
+
 <div class="my-3 d-flex justify-content-center ">
   <input  type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Register" style="border-radius: 20px;">
 </div>

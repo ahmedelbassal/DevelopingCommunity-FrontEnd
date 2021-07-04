@@ -1,6 +1,13 @@
 <div class="curved-div mt-5">
   <form [formGroup]="loginForm" class="w-100 container formStyle">
 
+    <div class="row" style="text-align: center;" *ngIf="redirectedFromNotAuthorized==true">
+
+      <span style="padding: 10px;" class="txtDesign text-danger" >
+        You should log in first
+      </span>
+    </div>
+
 
     <div *ngFor="let item of StringInputNameValidation" class="row"> 
 
@@ -14,6 +21,25 @@
     
         ></app-form-input-string>  
     </div>
+
+    
+    
+      <app-input-password
+      [FormOfInput]=loginForm
+      name=Password
+      [maxLength]=25
+      [minLength]=5
+      [IsRequired]=true
+      
+      [clickedBefore]="clicked"
+      >
+         
+          
+      </app-input-password>
+
+
+
+
     <div class="row">
       <app-input-select
             name="Are you ..?"
@@ -24,6 +50,14 @@
   
       </app-input-select>
   </div>
+
+  
+<div class="row" style="text-align: center;" *ngIf="invalidLoginData==true">
+
+  <span style="padding: 10px;" class="txtDesign text-danger" >
+    Username or password is invalid
+  </span>
+</div>
   
 
     <div class="my-3">
