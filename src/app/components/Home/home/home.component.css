@@ -1,6 +1,5 @@
 /* @import "https://bootstrapmade.com/demo/templates/Lumia/assets/css/style.css"; */
-@import '../../../../assets/css/style2.css';
-
+@import "../../../../assets/css/style2.css";
 
 .curved-div {
   color: #fff;
@@ -48,12 +47,12 @@
   top: 100px;
   transform: rotate(20deg);
 }
-
+/* 
 .frameStyle {
   position: relative !important;
   z-index: -20 !important;
   height: 500px !important;
-}
+} */
 
 .fullscreen-bg {
   position: fixed;
@@ -62,7 +61,7 @@
   bottom: 0;
   left: 0;
   overflow: hidden;
-  z-index: -100;
+  z-index: -30;
 }
 
 .fullscreen-bg__video {
