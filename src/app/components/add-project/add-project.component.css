@@ -1,5 +1,7 @@
-@import "https://colorlib.com/etc/lf/Login_v1/css/util.css";
-@import "https://colorlib.com/etc/lf/Login_v1/css/main.css";
+/* @import "https://colorlib.com/etc/lf/Login_v1/css/util.css";
+@import "https://colorlib.com/etc/lf/Login_v1/css/main.css"; */
+@import '../../../assets/css/main.css';
+@import '../../../assets/css/util.css';
 
 .curved-div {
   color: #fff;

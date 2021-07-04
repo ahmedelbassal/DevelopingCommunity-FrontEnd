@@ -93,8 +93,14 @@
         <span>{{ projectName }}</span>
         <h6 class="my-2">Project Description</h6>
         <p>{{ Description }}</p>
-        <a class="my-2" [href]="this.CodeUrl" target="_blank">Github Repo</a>
-        <h6>Youtube Demo</h6>
+        <a
+          class="my-2"
+          [href]="this.CodeUrl"
+          target="_blank"
+          *ngIf="ShowTheCode"
+          >Github Repo</a
+        >
+        <h6 class="my-2">Youtube Demo</h6>
         <iframe
           width="560"
           height="315"

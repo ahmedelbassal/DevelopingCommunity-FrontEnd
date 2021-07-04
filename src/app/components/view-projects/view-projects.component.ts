@@ -28,18 +28,17 @@ export class ViewProjectsComponent implements OnInit {
   GitUserName: any;
   YoutDubeUrl: any;
   RepoName: any;
+  ShowTheCode: any;
   projectDetails(id: any) {
-    console.log(id);
     this.projectservice.GetProjectById(id).subscribe((data: any) => {
-      console.log(data.body);
       this.projectId = data.body.id;
       this.projectName = data.body.name;
       this.YoutDubeUrl = data.body.youtDubeUrl;
       this.Description = data.body.description;
       this.CodeUrl = data.body.codeUrl;
-      console.log( this.CodeUrl, data.body.codeUrl)
       this.GitUserName = data.body.gitUserName;
       this.RepoName = data.body.repoName;
+      this.ShowTheCode = data.body.codeView;
     });
   }
 }

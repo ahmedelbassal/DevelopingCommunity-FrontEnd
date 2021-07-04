@@ -1,5 +1,8 @@
-@import "https://mobirise.com/bootstrap-template/web-application-template/assets/mobirise/css/mbr-additional.css";
-@import "https://mobirise.com/bootstrap-template/web-application-template/assets/theme/css/style.css";
+/* @import "https://mobirise.com/bootstrap-template/web-application-template/assets/mobirise/css/mbr-additional.css"; */
+/* @import "https://mobirise.com/bootstrap-template/web-application-template/assets/theme/css/style.css"; */
+@import '../../../assets/css/style.css';
+@import '../../../assets/css/mbr-additional.css';
+
 
 .curved-div {
   color: #fff;
