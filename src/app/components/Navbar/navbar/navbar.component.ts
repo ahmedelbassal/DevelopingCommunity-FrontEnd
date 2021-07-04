@@ -29,8 +29,7 @@ export class NavbarComponent implements OnInit {
         
         this.userDetials = data;
 
-        this.firstName=this.userDetials.firstName;
-        this.lastName=this.userDetials.firstName;
+        this.firstName=this.userDetials.firstName;       
 
 
         this.loggedIn = true;
