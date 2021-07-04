@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AddNewProjectService {
   constructor(private projectClient: HttpClient) {}
 
-  baseUrl: string = 'https://localhost:44347/api/';
+  baseUrl: string = 'https://developingcommunity-api.herokuapp.com/api/';
 
   Add(projectDetails: any) {
     return this.projectClient.post(this.baseUrl + 'projects', projectDetails, {

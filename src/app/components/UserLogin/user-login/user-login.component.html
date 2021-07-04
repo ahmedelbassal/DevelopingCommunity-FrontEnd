@@ -1,73 +1,65 @@
-<div class="curved-div mt-5">
+<div class="curved-div mt-2" style="margin-bottom: 60px">
   <form [formGroup]="loginForm" class="w-100 container formStyle">
-
-    <div class="row" style="text-align: center;" *ngIf="redirectedFromNotAuthorized==true">
-
-      <span style="padding: 10px;" class="txtDesign text-danger" >
+    <div
+      class="row"
+      style="text-align: center"
+      *ngIf="redirectedFromNotAuthorized == true"
+    >
+      <span style="padding: 10px" class="txtDesign text-danger">
         You should log in first
       </span>
     </div>
 
-
-    <div *ngFor="let item of StringInputNameValidation" class="row"> 
-
-        
-        <app-form-input-string 
-        [FormOfInput]=loginForm
-        [name]=item.name
-        [maxLength]=item.maxLength
-        [minLength]=item.minLength
-        [IsRequired]=item.IsRequired
-    
-        ></app-form-input-string>  
+    <div *ngFor="let item of StringInputNameValidation" class="row">
+      <app-form-input-string
+        [FormOfInput]="loginForm"
+        [name]="item.name"
+        [maxLength]="item.maxLength"
+        [minLength]="item.minLength"
+        [IsRequired]="item.IsRequired"
+      ></app-form-input-string>
     </div>
 
-    
-    
-      <app-input-password
-      [FormOfInput]=loginForm
-      name=Password
-      [maxLength]=25
-      [minLength]=5
-      [IsRequired]=true
-      
+    <app-input-password
+      [FormOfInput]="loginForm"
+      name="Password"
+      [maxLength]="25"
+      [minLength]="5"
+      [IsRequired]="true"
       [clickedBefore]="clicked"
-      >
-         
-          
-      </app-input-password>
-
-
-
+    >
+    </app-input-password>
 
     <div class="row">
       <app-input-select
-            name="Are you ..?"
-            [options]=UserTypeOptions
-            [FormOfInput]=loginForm
-            controllerName=UserType
+        name="Are you ..?"
+        [options]="UserTypeOptions"
+        [FormOfInput]="loginForm"
+        controllerName="UserType"
       >
-  
       </app-input-select>
-  </div>
+    </div>
 
-  
-<div class="row" style="text-align: center;" *ngIf="invalidLoginData==true">
-
-  <span style="padding: 10px;" class="txtDesign text-danger" >
-    Username or password is invalid
-  </span>
-</div>
-  
+    <div
+      class="row"
+      style="text-align: center"
+      *ngIf="invalidLoginData == true"
+    >
+      <span style="padding: 10px" class="txtDesign text-danger">
+        Username or password is invalid
+      </span>
+    </div>
 
     <div class="my-3">
-
-      <input  type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Login" style="border-radius: 20px;">
+      <input
+        type="button"
+        (click)="submitForm()"
+        class="btn btn-outline-primary"
+        value="Login"
+        style="border-radius: 20px"
+      />
     </div>
-    
-
-
-</form>
+  </form>
 
   <svg viewBox="0 0 1440 500">
     <path
@@ -76,11 +68,7 @@
       d="M 0 0 L 1666.87 -3.605 L 378.019 383.162 C 351.073 390.61 81.358 508.952 1.004 327.428 Z"
     ></path>
   </svg>
-  
 </div>
-
-
-
 
 <!-- <form [formGroup]="registerForm">
 
@@ -104,20 +92,6 @@
 
 </form>
  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <form
             class="form"
@@ -162,4 +136,3 @@
               </div>
             </div>
             span class="login_error" id="name_error"></span -->
-
