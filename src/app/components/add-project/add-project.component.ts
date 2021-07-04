@@ -34,6 +34,9 @@ export class AddProjectComponent implements OnInit {
       Validators.minLength(30),
     ]),
     CodeUrl: new FormControl('', Validators.nullValidator),
+    GitUserName: new FormControl('', Validators.nullValidator),
+    RepoName: new FormControl('', Validators.nullValidator),
+    YoutDubeUrl: new FormControl('', Validators.nullValidator),
     CodeView: new FormControl('', Validators.nullValidator),
   });
 
@@ -43,12 +46,18 @@ export class AddProjectComponent implements OnInit {
     let Name = this.projectForm.get('Name')?.value;
     let Description = this.projectForm.get('Description')?.value;
     let CodeUrl = this.projectForm.get('CodeUrl')?.value;
+    let GitUserName = this.projectForm.get('GitUserName')?.value;
+    let RepoName = this.projectForm.get('RepoName')?.value;
+    let YoutDubeUrl = this.projectForm.get('YoutDubeUrl')?.value;
     let CodeView = this.projectForm.get('CodeView')?.value;
 
     let registerDetails = {
       Name,
       Description,
-      CodeUrl,
+      CodeUrl,      
+      GitUserName,      
+      RepoName,      
+      YoutDubeUrl,      
       CodeView,
     };
     console.log(registerDetails);

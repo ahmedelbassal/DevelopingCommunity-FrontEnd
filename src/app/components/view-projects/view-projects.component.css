@@ -1,25 +1,88 @@
-.mycard{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    grid-gap: 16px;
+.mycard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-gap: 16px;
 }
-.card{
-    align-items: center;
-    height: 30rem;
-    width: 20rem;
-    /* border: none;  */
-    cursor: pointer;     
+.card {
+  align-items: center;
+  height: 30rem;
+  width: 20rem;
+  /* border: none;  */
+  cursor: pointer;
 }
-.card:hover{
-    cursor: pointer;
-    transform: translateY(-10px);
-    /* opacity: 0.5; */
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  /* opacity: 0.5; */
+}
+button {
+  margin-left: 30%;
+}
+button:hover {
+  opacity: 0.5;
+}
 
+.curved-div {
+  color: #fff;
+  text-align: center;
+  height: 300px;
 }
-button{
-    margin-left: 30%;
+.curved-div h2 {
+  width: 500px;
+  padding-left: 0px;
+  margin-left: 50px;
+  text-align: left;
 }
-button:hover{
-    opacity: 0.5;
+
+.curved-div p {
+  width: 500px;
+  margin-left: 50px;
+}
+.curved-div hr {
+  background: #d48282;
+  margin-left: 50px;
+  border: none;
+  opacity: 1;
+  height: 5px;
+  width: 400px;
+}
+.curved-div svg {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -10;
+}
+
+.firstChar {
+  position: absolute;
+  width: 300px;
+  right: 200px;
+  top: 100px;
+  transform: rotate(-20deg);
+}
+
+.SecondChar {
+  position: absolute;
+  right: 200px;
+  top: 100px;
+  transform: rotate(20deg);
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }

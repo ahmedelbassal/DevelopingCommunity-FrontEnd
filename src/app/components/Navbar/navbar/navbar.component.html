@@ -109,6 +109,18 @@
             Projects
           </a>
         </li>
+
+        <li class="nav-item" *ngIf="loggedIn">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="projects/add"
+          >
+            Add Project
+          </a>
+        </li>
+
         <li class="nav-item" *ngIf="!loggedIn">
           <a
             class="nav-link"

@@ -1,34 +1,111 @@
+<div class="curved-div mt-5">
+  <h2>Projects</h2>
+  <svg viewBox="0 0 1440 500">
+    <path
+      fill="#506a91"
+      fill-opacity="1"
+      d="M 0 0 L 1666.87 -3.605 L 378.019 383.162 C 351.073 390.61 81.358 508.952 1.004 327.428 Z"
+    ></path>
+  </svg>
+  <img
+    class="firstChar"
+    src="assets/images/6.svg"
+    width="100px"
+    height="100px"
+  />
+  <img
+    class="SecondChar"
+    src="assets/images/7.svg"
+    width="100px"
+    height="100px"
+  />
+</div>
+
+<div class="fullscreen-bg">
+  <video loop muted autoplay class="fullscreen-bg__video">
+    <source src="assets/images/8.mp4" type="video/webm" />
+  </video>
+</div>
+
 <!------------------- Card for Projects ----------->
 <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
-<div class="mycard">
-    <div class="card h-100" *ngFor="let P of Projects">
-        <h5 class="card-title">{{P.name}}</h5>
+<div class="mycard my-2">
+  <div class="card h-100" *ngFor="let P of Projects; let i = index">
+    <h5 class="card-title">{{ P.name }}</h5>
+    <div class="card-body d-flex align-items-center">
+      <img
+        *ngIf="i % 2 == 0"
+        src="assets\images\15.svg"
+        class="card-img-top my-1"
+        style="width: 100px"
+      />
 
-        <div class="card-body">
-            <img src="assets\images\projectPhotoIcon.png" class="card-img-top" alt="...">
-            <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-             (click)="projectDetails(P.id)">View more</button>
-
-        </div>
+      <img
+        *ngIf="i % 2 == 1"
+        src="assets\images\16.svg"
+        class="card-img-top my-1"
+        style="width: 100px"
+      />
+      <button
+        style="width: 150px; height: 40px"
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        (click)="projectDetails(P.id)"
+      >
+        more
+      </button>
     </div>
+  </div>
 </div>
+
 <!-- </div> -->
 <!-- --------------Modal for details of Project------------>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h6>Id: {{projectId}}</h6>
-                <h6>Name: {{projectName}}</h6>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
+<div
+  class="modal fade bd-example-modal-lg"
+  width="600px"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="my-2">Id:</h6>
+        <span>{{ projectId }}</span>
+        <h6 class="my-2">Name:</h6>
+        <span>{{ projectName }}</span>
+        <h6 class="my-2">Project Description</h6>
+        <p>{{ Description }}</p>
+        <a class="my-2" [href]="this.CodeUrl" target="_blank">Github Repo</a>
+        <h6>Youtube Demo</h6>
+        <iframe
+          width="560"
+          height="315"
+          [src]="this.YoutDubeUrl | safe"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
     </div>
+  </div>
 </div>

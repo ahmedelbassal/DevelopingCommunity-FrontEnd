@@ -26,6 +26,7 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ViewProjectsComponent } from './components/view-projects/view-projects.component';
 import { AddProjectComponent } from './components/add-project/add-project.component';
+import { SafePipe } from './components/safe.pipe';
 
 
 const appRoutes: Routes = [
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     AboutComponent,
     CarouselComponent,
     ViewProjectsComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
