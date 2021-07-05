@@ -1,0 +1,244 @@
+<form [formGroup]="organiztionForm" class="w-100 container formStyle">
+
+  <h2 class="txtDesign">
+    Add new Organization
+  </h2>
+  <h4 class="txtDesign" style="font-weight: lighter;text-decoration: underline;">
+    Be a member of out Community
+  </h4>
+  <div *ngFor="let item of StringInputNameValidation" class="row">
+
+
+    <label for="{{item.name}}" [formGroup]="organiztionForm" class="w-100">
+
+      <!-- {{name}} -->
+      <div class="container w-75">
+        <input class="input form-control inputDesign w-100 txtDesign" type="text" name="{{item.name}}" autocomplete="on"
+          placeholder="{{item.name}}" #{{item.name}} id="{{item.name}}" formControlName={{item.name}} />
+        <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+        <!-- Username already exists. choose another one -->
+        <!-- </div> -->
+        <div name="validations" *ngIf="organiztionForm.invalid&&clicked">
+          <span class="text-danger" *ngIf="
+          
+          organiztionForm.controls[item.name].errors?.required
+        ">{{item.name}} is required</span>
+          <span class="text-danger" *ngIf="organiztionForm.controls[item.name].errors?.maxlength">>{{item.name}} characters exceeded
+            maximum length of {{item.maxLength}} characters</span>
+          <span class="text-danger" *ngIf="organiztionForm.controls[item.name].errors?.minlength">{{item.name}} characters are less
+            than {{item.minLength}} characters</span>
+        </div>
+      </div>
+
+      <br>
+
+    </label>
+  </div>
+
+
+
+  <label for="Email" [formGroup]="organiztionForm" class="w-100">
+    <!-- Email -->
+  
+    <div class="form-group" class="container w-75" >
+      <input
+        class="input form-control inputDesign txtDesign"
+        type="text"
+        name="Email"
+        autocomplete="on"
+        placeholder="Email"
+        #Email
+        id="Email"
+        formControlName="Email"
+      />
+      <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+      <!-- Username already exists. choose another one -->
+      <!-- </div> -->
+      <div name="validations" *ngIf="organiztionForm.invalid&&clicked">
+        <span
+          class="text-danger"
+          *ngIf="organiztionForm.controls['Email'].errors?.required"
+          >Email is required</span
+        >
+        <span class="text-danger" *ngIf="organiztionForm.controls['Email'].errors?.email"
+          >>Email is invalid</span
+        >
+  
+        >
+      </div>
+    </div>
+  
+    <br>
+  </label>
+  
+
+
+  
+
+<label for="Phone" [formGroup]="organiztionForm" class="w-100"> 
+
+  <!-- Phone -->
+    <div class="form-group container w-75" >
+        <input
+          class="input form-control inputDesign txtDesign"
+          type="text"
+          name="Phone"
+          autocomplete="on"
+          placeholder="Phone"
+          #Phone
+          id="Phone"
+          formControlName=Phone
+        
+        />
+        <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+          <!-- Username already exists. choose another one -->
+        <!-- </div> -->
+        <div name="validations" *ngIf="organiztionForm.invalid&&clicked">
+          <span
+            class="text-danger"
+            *ngIf="
+              
+              organiztionForm.controls['Phone'].errors?.required
+            "
+            >Phone is required</span
+          >
+          <span
+            class="text-danger"
+            *ngIf="organiztionForm.controls['Phone'].errors?.pattern"
+            >>Phone is invalid</span
+          >
+         
+          >
+        </div>
+      </div>
+
+      <br>
+    
+    </label>
+    
+
+
+
+
+    <label for="PhotoUrl" [formGroup]="organiztionForm" class="w-100"> 
+
+      <!-- PhotoUrl -->
+        <div class="form-group container w-75" >
+            <input
+              class="input form-control inputDesign txtDesign"
+              type="text"
+              name="PhotoUrl"
+              autocomplete="on"
+              placeholder="PhotoUrl"
+              #PhotoUrl
+              id="PhotoUrl"
+              formControlName=PhotoUrl
+            
+            />
+            <!-- <div class="text-danger" *ngIf="userNameExists"> -->
+              <!-- Username already exists. choose another one -->
+            <!-- </div> -->
+            <div name="validations" *ngIf="organiztionForm.invalid&&clicked">
+              <span
+                class="text-danger"
+                *ngIf="
+                  
+                  organiztionForm.controls['PhotoUrl'].errors?.required
+                "
+                >PhotoUrl is required</span
+              >
+              <span
+                class="text-danger"
+                *ngIf="organiztionForm.controls['PhotoUrl'].errors?.pattern"
+                >>PhotoUrl is invalid</span
+              >
+             
+              >
+            </div>
+          </div>
+    
+          <br>
+        
+        </label>
+        
+
+
+        
+<label for="organiztionType" [formGroup]="organiztionForm" class="w-100" *ngIf="OrganizationOptions">
+
+  <div class="container w-75" >
+    <span class="txtDesign" style="font-weight: lighter; text-decoration: underline;">{{name}}</span>
+
+    <select
+    
+    class="form-control w-100 txtDesign" 
+    aria-label=".form-select-lg example" 
+    #organiztionTypeId
+    id="organiztionTypeId"
+    name="organiztionTypeId"
+    formControlName="organiztionTypeId" >
+    
+    <option *ngFor="let item of OrganizationOptions" [value]="item.valueMember">{{item.DisplayMember}}</option>
+    
+  </select>
+  
+</div>
+</label>
+
+    
+  <!-- <div class="row">
+      <app-email-input 
+        [FormOfInput]=registerForm
+        name="Email"
+      >  [clickedBefore]="clicked"
+      </app-email-input>
+    </div>
+    <div class="row">
+      <app-phone-input
+        [FormOfInput]=registerForm
+        name="Phone"
+        [clickedBefore]="clicked"
+      >
+        
+      </app-phone-input>
+    </div>
+  
+    <div *ngIf="departmentsOptions!=null" class="row">
+        <app-input-select
+              name="Department"
+              [options]=departmentsOptions
+              [FormOfInput]=registerForm
+              controllerName=depertId
+              
+        >
+  
+        </app-input-select>
+    </div>
+   -->
+
+  <!-- <div class="row">
+      <app-input-select
+            name="UserType"
+            [options]=UserTypeOptions
+            [FormOfInput]=registerForm
+            controllerName=UserType
+      >
+  
+      </app-input-select>
+  </div> -->
+
+  <div class="row" style="text-align: center;" *ngIf="updatedSuccessfully==true">
+
+    <span style="padding: 10px;" class="txtDesign text-primary" >
+      Added successfully. Redirecting to home page &nbsp; <i class="fa fa-spinner" aria-hidden="true"></i>
+    </span>
+  </div>
+
+
+
+  <div class="my-3 d-flex justify-content-center ">
+    <input type="button" (click)="submitForm()" class="btn btn-outline-primary" value="Add"
+      style="border-radius: 20px;">
+  </div>
+
+</form>
