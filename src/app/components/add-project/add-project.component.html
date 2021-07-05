@@ -39,22 +39,43 @@
         (ngSubmit)="submitForm()"
       >
         <span class="login100-form-title">Add project</span>
-        <div class="wrap-input100" data-validate="Valid name is required">
+        <div
+          class="wrap-input100 form-group"                   
+        >
           <input
             class="input100 form-control"
             formControlName="Name"
             type="text"
             name="Name"
             placeholder="Project name"
+            required
+            minlength="4"
           />
           <span class="focus-input100"></span>
           <span class="symbol-input100">
             <img src="assets/images/11.svg" width="20px" />
           </span>
         </div>
+
         <div
-          class="wrap-input100 validate-input"
-          data-validate="Password is required"
+        *ngIf="
+          projectForm.controls.Name.invalid &&
+          (projectForm.controls.Name.dirty ||
+            projectForm.controls.Name.touched)
+        "
+        class="alert alert-danger my-2"
+      >
+        <div *ngIf="projectForm.controls.Name.errors?.required">
+          Name is required.
+        </div>
+        <div *ngIf="projectForm.controls.Name.errors?.minlength">
+          Name must be at least 4 characters long.
+        </div>       
+      </div>
+       
+
+        <div
+          class="wrap-input100 validate-input"          
         >
           <textarea
             class="input100 form-control"
@@ -69,6 +90,22 @@
           </span>
         </div>
 
+        <div
+        *ngIf="
+          projectForm.controls.Description.invalid &&
+          (projectForm.controls.Description.dirty ||
+            projectForm.controls.Description.touched)
+        "
+        class="alert alert-danger my-2"
+      >
+        <div *ngIf="projectForm.controls.Description.errors?.required">
+          Description is required.
+        </div>
+        <div *ngIf="projectForm.controls.Description.errors?.minlength">
+          Description must be at least 30 characters long.
+        </div>       
+      </div>
+
         <div class="wrap-input100" data-validate="Valid name is required">
           <input
             class="input100 form-control"
@@ -82,7 +119,7 @@
             <img src="assets/images/13.svg" width="20px" />
           </span>
         </div>
-        
+
         <div class="wrap-input100" data-validate="Valid usernameis required">
           <input
             class="input100 form-control"
@@ -97,7 +134,10 @@
           </span>
         </div>
 
-        <div class="wrap-input100" data-validate="Valid repository name is required">
+        <div
+          class="wrap-input100"
+          data-validate="Valid repository name is required"
+        >
           <input
             class="input100 form-control"
             formControlName="RepoName"
@@ -111,7 +151,10 @@
           </span>
         </div>
 
-        <div class="wrap-input100" data-validate="Valid youtube video url is required">
+        <div
+          class="wrap-input100"
+          data-validate="Valid youtube video url is required"
+        >
           <input
             class="input100 form-control"
             formControlName="YoutDubeUrl"
@@ -125,11 +168,9 @@
           </span>
         </div>
 
-
-
         <div class="wrap-input100">
           <input
-          type="checkbox"
+            type="checkbox"
             class=""
             formControlName="CodeView"
             id="CodeView"

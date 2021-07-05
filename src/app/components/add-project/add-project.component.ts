@@ -64,6 +64,11 @@ export class AddProjectComponent implements OnInit {
       CodeView,
     };
 
+    if (!this.projectForm.valid) {
+      alert('Enter valid data');
+      return;
+    }
+
     this.subscriber = this.projectService.Add(registerDetails).subscribe(
       (data) => {
         alert('Project added successfully');
