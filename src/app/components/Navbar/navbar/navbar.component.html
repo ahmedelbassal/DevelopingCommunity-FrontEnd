@@ -140,6 +140,14 @@
           >
             Sign in
           </a>
+          <li class="nav-item" *ngIf="loggedIn">
+            <a
+              class="nav-link bg-danger"
+             (click)="logout()"
+             style="border-radius: 30px; color: white !important; opacity: 100 !important;"             
+            >
+              Sign out
+            </a>
         </li>
       </ul>
     </div>

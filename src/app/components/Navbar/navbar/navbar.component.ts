@@ -53,6 +53,14 @@ export class NavbarComponent implements OnInit {
 
   isAdmin=false;
 
+  logout(){    
+    console.log("here")
+    localStorage.removeItem("devCommunityToken");
+    localStorage.removeItem("devCommunityUserType");
+    // location.reload();
+    this.router.navigateByUrl("").then(()=>{location.reload();})    
+  }
+
   // navigateUserEditDetails() {
   //   this.router.navigateByUrl('user/edit');
   // }
