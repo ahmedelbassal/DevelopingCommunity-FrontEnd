@@ -9,14 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-project.component.css'],
 })
 export class AddProjectComponent implements OnInit {
-  constructor(private projectService:AddNewProjectService, private router: Router) {}
+  constructor(
+    private projectService: AddNewProjectService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadScript('../assets/js/select2.min.js');
-    this.loadScript('../assets/js/tilt.jquery.min.js');   
+    this.loadScript('../assets/js/tilt.jquery.min.js');
   }
-  ngAfterViewInit() {    
-  }
+  ngAfterViewInit() {}
 
   public loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -41,7 +43,7 @@ export class AddProjectComponent implements OnInit {
     CodeView: new FormControl('', Validators.nullValidator),
   });
 
-  subscriber:any;
+  subscriber: any;
 
   submitForm() {
     let Name = this.projectForm.get('Name')?.value;
@@ -50,27 +52,26 @@ export class AddProjectComponent implements OnInit {
     let GitUserName = this.projectForm.get('GitUserName')?.value;
     let RepoName = this.projectForm.get('RepoName')?.value;
     let YoutDubeUrl = this.projectForm.get('YoutDubeUrl')?.value;
-    let CodeView = this.projectForm.get('CodeView')?.value;
+    let CodeView = this.projectForm.get('CodeView')?.value || false;
 
     let registerDetails = {
       Name,
       Description,
-      CodeUrl,      
-      GitUserName,      
-      RepoName,      
-      YoutDubeUrl,      
+      CodeUrl,
+      GitUserName,
+      RepoName,
+      YoutDubeUrl,
       CodeView,
-    };   
+    };
 
-    this.subscriber=this.projectService.Add(registerDetails).subscribe(
-      data => {                
-        alert("Project added successfully")
+    this.subscriber = this.projectService.Add(registerDetails).subscribe(
+      (data) => {
+        alert('Project added successfully');
         this.router.navigateByUrl('projects');
       },
-      err=>{
-        alert("There was an error please review your inputed data");        
+      (err) => {
+        alert('There was an error please review your inputed data');
       }
     );
-
   }
 }
