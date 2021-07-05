@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddNewProjectService } from './../../services/add-new-project.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css'],
 })
 export class AddProjectComponent implements OnInit {
-  constructor(private projectService:AddNewProjectService) {}
+  constructor(private projectService:AddNewProjectService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadScript('../assets/js/select2.min.js');
@@ -59,13 +60,15 @@ export class AddProjectComponent implements OnInit {
       RepoName,      
       YoutDubeUrl,      
       CodeView,
-    };
-    console.log(registerDetails);
+    };   
 
     this.subscriber=this.projectService.Add(registerDetails).subscribe(
-      data => {        
-        console.log(data);
-        // alert("product added successfully")
+      data => {                
+        alert("Project added successfully")
+        this.router.navigateByUrl('projects');
+      },
+      err=>{
+        alert("There was an error please review your inputed data");        
       }
     );
 
